@@ -1,0 +1,45 @@
+.home-page {
+  min-height: 100dvh;
+  padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--stitch-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 41px;
+  letter-spacing: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.feature-card {
+  border: 0;
+  border-radius: var(--stitch-radius-lg);
+  box-shadow: var(--stitch-shadow-level-1);
+}
+
+mat-icon[mat-card-avatar] {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--stitch-primary);
+}

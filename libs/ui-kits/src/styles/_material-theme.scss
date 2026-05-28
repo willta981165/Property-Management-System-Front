@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use './tokens' as tokens;
+
+@include mat.core();
+
+$primary-palette: mat.m2-define-palette(mat.$m2-indigo-palette, 900);
+$accent-palette: mat.m2-define-palette(mat.$m2-amber-palette, 600);
+$warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+
+$stitch-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $primary-palette,
+    accent: $accent-palette,
+    warn: $warn-palette
+  ),
+  typography: mat.m2-define-typography-config(
+    $font-family: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+  ),
+  density: 0
+));
+
+@mixin theme() {
+  @include mat.all-component-themes($stitch-theme);
+
+  :root {
+    color-scheme: light;
+    --stitch-primary: #{map.get(tokens.$stitch-colors, primary)};
+    --stitch-primary-container: #{map.get(tokens.$stitch-colors, primary-container)};
+    --stitch-secondary: #{map.get(tokens.$stitch-colors, secondary)};
+    --stitch-accent: #{map.get(tokens.$stitch-colors, accent)};
+    --stitch-background: #{map.get(tokens.$stitch-colors, background)};
+    --stitch-surface: #{map.get(tokens.$stitch-colors, surface)};
+    --stitch-surface-container: #{map.get(tokens.$stitch-colors, surface-container)};
+    --stitch-text: #{map.get(tokens.$stitch-colors, text)};
+    --stitch-text-muted: #{map.get(tokens.$stitch-colors, muted)};
+    --stitch-error: #{map.get(tokens.$stitch-colors, error)};
+    --stitch-radius-md: #{map.get(tokens.$stitch-radius, md)};
+    --stitch-radius-lg: #{map.get(tokens.$stitch-radius, lg)};
+    --stitch-radius-xl: #{map.get(tokens.$stitch-radius, xl)};
+    --stitch-shadow-level-1: #{map.get(tokens.$stitch-shadow, level-1)};
+    --stitch-shadow-level-2: #{map.get(tokens.$stitch-shadow, level-2)};
+  }
+}

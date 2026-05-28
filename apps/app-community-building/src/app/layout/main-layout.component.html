@@ -1,0 +1,13 @@
+<div class="main-layout">
+  <header class="main-header">
+    <!-- 頭像、標題、通知鈴鐺等 -->
+    <ng-content select="[header]"></ng-content>
+  </header>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="main-footer">
+    <!-- 導覽列 -->
+    <ng-content select="[footer]"></ng-content>
+  </footer>
+</div>

@@ -1,0 +1,35 @@
+node_modules/
+dist/
+tmp/
+.nx/
+.angular/
+android/app/build/
+ios/App/build/
+*.log
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Capacitor/iOS
+ios/App/Pods/
+ios/App/Podfile.lock
+ios/App/DerivedData/
+ios/App/App.xcworkspace/
+ios/App/xcuserdata/
+ios/App/Assets.xcassets/
+ios/App/public/
+
+# Build outputs
+build/
+out/
+
+# Environment files
+.env
+.env.*
+
+# Others
+*.swp
+*.swo
+*.local
