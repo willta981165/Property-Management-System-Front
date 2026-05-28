@@ -1,0 +1,62 @@
+
+.announcements-container {
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 0 1.5rem 2rem 1.5rem;
+	background: #f8fafc;
+}
+.announcements-header {
+	padding-top: 1.5rem;
+	.page-title {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+	}
+}
+.announcements-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	.announcement-card {
+		background: #fff;
+		border-radius: 1rem;
+		box-shadow: 0 2px 8px #e0e7ef33;
+		padding: 1.2rem 1rem 1rem 1rem;
+		margin-bottom: 0;
+		.card-header {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-bottom: 0.5rem;
+			.badge {
+				background: #2563eb;
+				color: #fff;
+				border-radius: 0.75rem;
+				font-size: 0.85rem;
+				padding: 0 0.7em;
+				margin-right: 0.5em;
+			}
+			.date {
+				color: #64748b;
+				font-size: 0.95rem;
+				margin-left: auto;
+			}
+		}
+		.card-title {
+			font-weight: 600;
+			font-size: 1.1rem;
+			margin-bottom: 0.3rem;
+		}
+		.card-content {
+			color: #334155;
+			font-size: 1rem;
+		}
+		&.unread {
+			border: 2px solid #2563eb;
+		}
+	}
+	.divider {
+		height: 1rem;
+		background: none;
+	}
+}
