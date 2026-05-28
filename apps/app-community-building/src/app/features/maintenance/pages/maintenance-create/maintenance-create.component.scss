@@ -1,0 +1,52 @@
+
+.maintenance-create-container {
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 0 1.5rem 2rem 1.5rem;
+	background: #f8fafc;
+}
+.maintenance-create-header {
+	padding-top: 1.5rem;
+	.page-title {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+	}
+}
+.maintenance-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		label {
+			font-weight: 600;
+			font-size: 1rem;
+			margin-bottom: 0.2rem;
+		}
+		input, textarea {
+			border: 1px solid #cbd5e1;
+			border-radius: 0.7rem;
+			padding: 0.7em 1em;
+			font-size: 1rem;
+			background: #fff;
+			resize: none;
+		}
+		textarea { min-height: 90px; }
+	}
+	.submit-btn {
+		margin-top: 1rem;
+		background: #2563eb;
+		color: #fff;
+		border: none;
+		border-radius: 0.7rem;
+		padding: 0.7em 1.2em;
+		font-size: 1.1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.2s;
+		&:hover { background: #1e40af; }
+	}
+}

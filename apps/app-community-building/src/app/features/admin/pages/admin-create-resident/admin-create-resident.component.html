@@ -1,0 +1,57 @@
+<!-- 管理員：建立住戶帳號頁面 skeleton，依 prototype 與架構分析建議 -->
+<main class="admin-create-resident-container">
+  <header class="admin-create-resident-header">
+    <button class="back-btn" aria-label="返回">←</button>
+    <h1 class="page-title">建立帳號</h1>
+    <button class="save-btn">儲存</button>
+  </header>
+
+  <section class="form-section">
+    <h2 class="form-title">管理員：建立住戶帳號</h2>
+    <div class="form-desc">請填寫下方資訊以手動建立住戶數位通行帳號。</div>
+    <form class="resident-form">
+      <div class="form-group">
+        <label for="name">姓名</label>
+        <input id="name" name="name" type="text" placeholder="請輸入住戶全名" />
+      </div>
+      <div class="form-group">
+        <label for="unit">單位編號</label>
+        <input id="unit" name="unit" type="text" placeholder="例如：A座 12F-A" />
+      </div>
+      <div class="form-group">
+        <label for="phone">聯絡電話</label>
+        <input id="phone" name="phone" type="text" placeholder="09XX-XXX-XXX" />
+      </div>
+      <div class="form-group">
+        <label for="email">電子郵件（選填）</label>
+        <input id="email" name="email" type="email" placeholder="example@mail.com" />
+      </div>
+      <div class="form-group">
+        <label for="password">初始密碼</label>
+        <div class="password-row">
+          <input id="password" name="password" type="text" value="RE-9x2K8n" readonly />
+          <button class="random-btn" type="button">隨機</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>帳號權限類型</label>
+        <div class="role-row">
+          <button class="role-btn active" type="button">住戶</button>
+          <button class="role-btn" type="button">家屬</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="note">備註</label>
+        <textarea id="note" name="note" rows="2" placeholder="輸入內部管理備註..."></textarea>
+      </div>
+      <div class="form-banner">
+        <div class="banner-img"></div>
+        <div class="banner-text">
+          <div class="banner-title">PREMIUM COMMUNITY</div>
+          <div class="banner-desc">建立專屬尊榮服務體驗</div>
+        </div>
+      </div>
+      <button class="submit-btn" type="submit">👤＋ 確認建立</button>
+    </form>
+  </section>
+</main>

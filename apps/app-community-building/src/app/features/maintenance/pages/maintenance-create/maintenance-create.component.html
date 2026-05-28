@@ -1,1 +1,21 @@
-<h2>建立報修頁</h2>
+<main class="maintenance-create-container">
+	<header class="maintenance-create-header">
+		<h1 class="page-title">建立報修申請</h1>
+	</header>
+
+	<form class="maintenance-form">
+		<div class="form-group">
+			<label for="title">報修項目</label>
+			<input id="title" name="title" type="text" placeholder="請輸入報修項目" />
+		</div>
+		<div class="form-group">
+			<label for="desc">詳細說明</label>
+			<textarea id="desc" name="desc" rows="4" placeholder="請描述報修內容"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="location">地點</label>
+			<input id="location" name="location" type="text" placeholder="請輸入地點" />
+		</div>
+		<button class="submit-btn" type="submit">送出申請</button>
+	</form>
+</main>
