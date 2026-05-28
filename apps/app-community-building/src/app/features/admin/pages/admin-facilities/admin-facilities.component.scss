@@ -1,0 +1,86 @@
+
+.admin-facilities-container {
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 0 1.5rem 2rem 1.5rem;
+	background: #f8fafc;
+}
+.admin-facilities-header {
+	padding-top: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.page-title {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+	.add-btn {
+		background: #2563eb;
+		color: #fff;
+		border: none;
+		border-radius: 0.7rem;
+		padding: 0.5em 1.2em;
+		font-size: 1rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background 0.2s;
+		&:hover { background: #1e40af; }
+	}
+}
+.facilities-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin-top: 1.5rem;
+	.facility-card {
+		background: #fff;
+		border-radius: 1rem;
+		box-shadow: 0 2px 8px #e0e7ef33;
+		padding: 1.2rem 1rem 1rem 1rem;
+		margin-bottom: 0;
+		.facility-info {
+			display: flex;
+			align-items: center;
+			gap: 0.7rem;
+			.facility-icon { font-size: 1.5rem; }
+			.facility-name { font-weight: 600; font-size: 1.1rem; }
+		}
+		.facility-desc {
+			color: #64748b;
+			font-size: 0.98rem;
+		}
+		.card-actions {
+			display: flex;
+			gap: 0.5rem;
+			margin-top: 0.7rem;
+			.edit-btn {
+				background: #2563eb;
+				color: #fff;
+				border: none;
+				border-radius: 0.7rem;
+				padding: 0.4em 1em;
+				font-size: 0.98rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: background 0.2s;
+				&:hover { background: #1e40af; }
+			}
+			.delete-btn {
+				background: #f87171;
+				color: #fff;
+				border: none;
+				border-radius: 0.7rem;
+				padding: 0.4em 1em;
+				font-size: 0.98rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: background 0.2s;
+				&:hover { background: #b91c1c; }
+			}
+		}
+	}
+	.divider {
+		height: 1rem;
+		background: none;
+	}
+}
