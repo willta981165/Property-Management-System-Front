@@ -1,0 +1,51 @@
+<!-- 住戶端包裹列表 ResidentParcelsComponent skeleton，依 prototype 圖與架構分析建立 -->
+<main class="resident-parcels-container">
+  <header class="resident-parcels-header">
+    <div class="header-row">
+      <div class="portal-title"><span>📦</span> Resident Portal</div>
+      <button class="icon-btn" aria-label="通知"><span>🔔</span></button>
+    </div>
+    <h1 class="page-title">我的包裹</h1>
+    <div class="subtitle">追蹤並管理您的收件資訊</div>
+    <div class="search-row">
+      <input class="search-input" type="text" placeholder="搜尋包裹單號或物流商" />
+    </div>
+  </header>
+
+  <nav class="tab-row">
+    <button class="tab active">全部</button>
+    <button class="tab">待領取</button>
+    <button class="tab">已領取</button>
+  </nav>
+
+  <section class="parcels-list">
+    <article class="parcel-card waiting">
+      <div class="parcel-id">ID: #PX-99281</div>
+      <div class="parcel-title">黑貓宅急便</div>
+      <div class="parcel-meta">抵達於 10月24日 10:45 AM</div>
+      <span class="status-badge waiting">待領取</span>
+    </article>
+    <article class="parcel-card waiting">
+      <div class="parcel-id">ID: #AMZ-00129</div>
+      <div class="parcel-title">Uber Direct</div>
+      <div class="parcel-meta">抵達於 10月23日 02:15 PM</div>
+      <span class="status-badge waiting">待領取</span>
+    </article>
+    <article class="parcel-card received">
+      <div class="parcel-id">ID: #SF-77211</div>
+      <div class="parcel-title">順豐速運</div>
+      <div class="parcel-meta">簽收於 10月21日 05:30 PM</div>
+      <span class="status-badge received">已簽收</span>
+    </article>
+  </section>
+
+  <footer class="resident-parcels-footer">
+    <nav class="bottom-nav">
+      <a class="nav-item" href="#"><span>🏠</span><div>首頁</div></a>
+      <a class="nav-item active" href="#"><span>📦</span><div>包裹</div></a>
+      <a class="nav-item" href="#"><span>🛠️</span><div>服務</div></a>
+      <a class="nav-item" href="#"><span>📅</span><div>預約</div></a>
+      <a class="nav-item" href="#"><span>👤</span><div>個人</div></a>
+    </nav>
+  </footer>
+</main>

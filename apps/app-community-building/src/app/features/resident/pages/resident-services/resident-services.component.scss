@@ -1,0 +1,94 @@
+// 住戶端服務列表 ResidentServicesComponent SCSS skeleton，依 prototype 與架構分析建立
+.resident-services-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem 1.5rem;
+  background: #f8fafc;
+}
+.resident-services-header {
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .portal-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+  }
+  .page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1.2rem 0 0.2rem 0;
+  }
+  .subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+}
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  .service-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px #e0e7ef33;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+    color: #1e293b;
+    transition: box-shadow 0.2s;
+    &:hover {
+      box-shadow: 0 4px 16px #e0e7ef55;
+    }
+    .service-icon {
+      font-size: 2rem;
+      width: 2.5rem;
+      text-align: center;
+    }
+    .service-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+    .service-desc {
+      color: #64748b;
+      font-size: 0.98rem;
+    }
+  }
+}
+.resident-services-footer {
+  margin-top: 2rem;
+  .bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 8px #e0e7ef33;
+    padding: 0.5rem 0.7rem;
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #64748b;
+      font-size: 0.95rem;
+      text-decoration: none;
+      &.active { color: #2563eb; font-weight: 700; }
+      span { font-size: 1.3rem; }
+    }
+  }
+}

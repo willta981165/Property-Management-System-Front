@@ -1,0 +1,91 @@
+<!-- 住戶端首頁 ResidentHomeComponent skeleton，依 prototype 圖與架構分析建立 -->
+<main class="resident-home-container">
+  <header class="resident-home-header">
+    <div class="user-row">
+      <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="住戶頭像" />
+      <div class="portal-title">Resident Portal</div>
+      <button class="icon-btn" aria-label="通知"><span>🔔</span></button>
+    </div>
+    <div class="greeting-row">
+      <span class="role-badge">物業管理員</span>
+      <div class="greeting-main">陳大文，早安</div>
+      <div class="greeting-date">今天是 2026年5月24日 星期日</div>
+    </div>
+  </header>
+
+  <section class="stats-section">
+    <div class="stat-card">
+      <div class="stat-title">待處理包裹</div>
+      <div class="stat-value">24</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">進行中報修</div>
+      <div class="stat-value">12</div>
+    </div>
+    <div class="stat-card wide">
+      <div class="stat-title">今日設施預約</div>
+      <div class="stat-value">8 項設施預約</div>
+      <button class="calendar-btn" aria-label="行事曆">📅</button>
+    </div>
+  </section>
+
+  <section class="quick-actions">
+    <div class="quick-action">
+      <div class="icon">➕</div>
+      <div>登記包裹</div>
+    </div>
+    <div class="quick-action">
+      <div class="icon">📢</div>
+      <div>發布公告</div>
+    </div>
+    <div class="quick-action">
+      <div class="icon">🛠️</div>
+      <div>建立工單</div>
+    </div>
+  </section>
+
+  <section class="user-management">
+    <div class="user-action">
+      <div class="icon">👤+</div>
+      <div>建立用戶</div>
+    </div>
+    <div class="user-action">
+      <div class="icon">👥</div>
+      <div>用戶清單</div>
+    </div>
+  </section>
+
+  <section class="activity-section">
+    <div class="section-title-row">
+      <h2 class="section-title">最近動態</h2>
+      <a class="view-all" href="#">查看全部</a>
+    </div>
+    <div class="activity-list">
+      <article class="activity-card success">
+        <div class="activity-title">報修完成：3B 單位空調</div>
+        <div class="activity-desc">維修技師：張小泉 已確認修復並由租戶簽署。</div>
+        <div class="activity-time">10:45</div>
+      </article>
+      <article class="activity-card parcel">
+        <div class="activity-title">新包裹登記：12A 單位</div>
+        <div class="activity-desc">順豐快遞已送達 2 件大型包裹。</div>
+        <div class="activity-time">09:30</div>
+      </article>
+      <article class="activity-card booking">
+        <div class="activity-title">會所預約提醒：健身房</div>
+        <div class="activity-desc">住戶 李先生 已預約 18:00 - 19:00 時段。</div>
+        <div class="activity-time">08:15</div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="resident-home-footer">
+    <nav class="bottom-nav">
+      <a class="nav-item active" href="#"><span>🏠</span><div>Home</div></a>
+      <a class="nav-item" href="#"><span>📦</span><div>Parcels</div></a>
+      <a class="nav-item" href="#"><span>🛠️</span><div>Service</div></a>
+      <a class="nav-item" href="#"><span>📅</span><div>Booking</div></a>
+      <a class="nav-item" href="#"><span>👤</span><div>Profile</div></a>
+    </nav>
+  </footer>
+</main>

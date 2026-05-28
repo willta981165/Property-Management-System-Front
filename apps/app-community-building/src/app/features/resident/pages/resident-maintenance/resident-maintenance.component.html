@@ -1,0 +1,45 @@
+<!-- 住戶端報修列表 ResidentMaintenanceComponent skeleton，依 prototype 圖與架構分析建立 -->
+<main class="resident-maintenance-container">
+  <header class="resident-maintenance-header">
+    <div class="header-row">
+      <div class="portal-title"><span>📦</span> Resident Portal</div>
+      <button class="icon-btn" aria-label="通知"><span>🔔</span></button>
+    </div>
+    <h1 class="page-title">報修紀錄</h1>
+    <div class="subtitle">查看與追蹤您的報修申請</div>
+    <div class="search-row">
+      <input class="search-input" type="text" placeholder="搜尋報修主旨或單號" />
+    </div>
+  </header>
+
+  <nav class="tab-row">
+    <button class="tab active">全部</button>
+    <button class="tab">處理中</button>
+    <button class="tab">已完成</button>
+  </nav>
+
+  <section class="maintenance-list">
+    <article class="maintenance-card processing">
+      <div class="maintenance-id">ID: #MNT-20260501</div>
+      <div class="maintenance-title">水管漏水</div>
+      <div class="maintenance-meta">申請於 2026/05/01 09:30</div>
+      <span class="status-badge processing">處理中</span>
+    </article>
+    <article class="maintenance-card done">
+      <div class="maintenance-id">ID: #MNT-20260420</div>
+      <div class="maintenance-title">電燈故障</div>
+      <div class="maintenance-meta">完成於 2026/04/22 15:00</div>
+      <span class="status-badge done">已完成</span>
+    </article>
+  </section>
+
+  <footer class="resident-maintenance-footer">
+    <nav class="bottom-nav">
+      <a class="nav-item" href="#"><span>🏠</span><div>首頁</div></a>
+      <a class="nav-item" href="#"><span>📦</span><div>包裹</div></a>
+      <a class="nav-item" href="#"><span>🛠️</span><div>服務</div></a>
+      <a class="nav-item" href="#"><span>📅</span><div>預約</div></a>
+      <a class="nav-item" href="#"><span>👤</span><div>個人</div></a>
+    </nav>
+  </footer>
+</main>
