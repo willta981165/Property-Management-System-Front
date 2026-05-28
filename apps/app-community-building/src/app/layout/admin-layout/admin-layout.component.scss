@@ -1,16 +1,22 @@
 .admin-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  width: 100%;
+  min-width: 0;
+  min-height: 100dvh;
   background: #f5f7fb;
+  padding-top: env(safe-area-inset-top);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .layout-content {
   flex: 1;
-  padding-bottom: 80px;
-  max-width: 480px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin: 0 auto;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
 }
 
 .layout-bottom-nav {
@@ -26,8 +32,8 @@
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
   padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
-  max-width: 480px;
-  margin: 0 auto;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 
   .nav-item {
     flex: 1;
