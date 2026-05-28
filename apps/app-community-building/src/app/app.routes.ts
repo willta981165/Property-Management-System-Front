@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 
 export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+
   // ===== Auth =====
   /**
    * 功能頁面：登入頁
@@ -14,30 +18,30 @@ export const routes: Routes = [
   // ===== 住戶端 MainLayout =====
   {
     path: '',
-    component: (await import('./layout/main-layout/main-layout.component')).MainLayoutComponent,
+    component: MainLayoutComponent,
     children: [
       /** 功能頁面：住戶首頁 */
       { path: 'home', loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent) },
       /** 功能頁面：包裹列表頁 */
       { path: 'parcels', loadComponent: () => import('./features/parcels/pages/parcels/parcels.component').then(m => m.ParcelsComponent) },
       /** 功能頁面：包裹詳情頁 */
-      { path: 'parcels/:id', loadComponent: () => import('./features/parcels/pages/parcel-detail/parcel-detail.component').then(m => m.ParcelDetailComponent) },
+      { path: 'parcels/:id', loadComponent: () => import('./features/resident/pages/resident-parcel-detail/resident-parcel-detail.component').then(m => m.ResidentParcelDetailComponent) },
       /** 功能頁面：報修列表頁 */
       { path: 'maintenance', loadComponent: () => import('./features/maintenance/pages/maintenance/maintenance.component').then(m => m.MaintenanceComponent) },
       /** 功能頁面：建立報修頁 */
-      { path: 'maintenance/create', loadComponent: () => import('./features/maintenance/pages/maintenance-create/maintenance-create.component').then(m => m.MaintenanceCreateComponent) },
+      { path: 'maintenance/create', loadComponent: () => import('./features/resident/pages/resident-maintenance-create/resident-maintenance-create.component').then(m => m.ResidentMaintenanceCreateComponent) },
       /** 功能頁面：報修詳情頁 */
-      { path: 'maintenance/:id', loadComponent: () => import('./features/maintenance/pages/maintenance-detail/maintenance-detail.component').then(m => m.MaintenanceDetailComponent) },
+      { path: 'maintenance/:id', loadComponent: () => import('./features/resident/pages/resident-maintenance-detail/resident-maintenance-detail.component').then(m => m.ResidentMaintenanceDetailComponent) },
       /** 功能頁面：公設列表頁 */
       { path: 'facilities', loadComponent: () => import('./features/facilities/pages/facilities/facilities.component').then(m => m.FacilitiesComponent) },
       /** 功能頁面：公設預約頁 */
-      { path: 'facilities/:id/booking', loadComponent: () => import('./features/facilities/pages/facility-booking/facility-booking.component').then(m => m.FacilityBookingComponent) },
+      { path: 'facilities/:id/booking', loadComponent: () => import('./features/resident/pages/resident-facility-booking-create/resident-facility-booking-create.component').then(m => m.ResidentFacilityBookingCreateComponent) },
       /** 功能頁面：公設預約詳情頁 */
-      { path: 'facility-bookings/:id', loadComponent: () => import('./features/facilities/pages/facility-booking-detail/facility-booking-detail.component').then(m => m.FacilityBookingDetailComponent) },
+      { path: 'facility-bookings/:id', loadComponent: () => import('./features/resident/pages/resident-booking-detail/resident-booking-detail.component').then(m => m.ResidentBookingDetailComponent) },
       /** 功能頁面：公告列表頁 */
       { path: 'announcements', loadComponent: () => import('./features/announcements/pages/announcements/announcements.component').then(m => m.AnnouncementsComponent) },
       /** 功能頁面：公告詳情頁 */
-      { path: 'announcements/:id', loadComponent: () => import('./features/announcements/pages/announcement-detail/announcement-detail.component').then(m => m.AnnouncementDetailComponent) },
+      { path: 'announcements/:id', loadComponent: () => import('./features/resident/pages/resident-announcement-detail/resident-announcement-detail.component').then(m => m.ResidentAnnouncementDetailComponent) },
       /** 功能頁面：個人中心頁 */
       { path: 'profile', loadComponent: () => import('./features/profile/pages/profile/profile.component').then(m => m.ProfileComponent) }
     ]
@@ -46,7 +50,7 @@ export const routes: Routes = [
   // ===== 管理端 AdminLayout =====
   {
     path: 'admin',
-    component: (await import('./layout/admin-layout/admin-layout.component')).AdminLayoutComponent,
+    component: AdminLayoutComponent,
     children: [
       /** 功能頁面：管理員首頁 */
       { path: '', loadComponent: () => import('./features/admin/pages/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent) },
@@ -61,5 +65,7 @@ export const routes: Routes = [
       /** 功能頁面：管理員公告管理頁 */
       { path: 'announcements', loadComponent: () => import('./features/admin/pages/admin-announcements/admin-announcements.component').then(m => m.AdminAnnouncementsComponent) }
     ]
-  }
+  },
+
+  { path: '**', redirectTo: 'home' }
 ];

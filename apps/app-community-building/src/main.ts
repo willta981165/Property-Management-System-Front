@@ -1,7 +1,17 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { AuthTokenInterceptor } from '@stitch/core/auth';
 
-import { AppModule } from './app/app.module';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((error) => console.error(error));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideAnimations(),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }
+  ]
+}).catch((error) => console.error(error));

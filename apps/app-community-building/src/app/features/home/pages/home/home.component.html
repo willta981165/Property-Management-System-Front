@@ -1,67 +1,77 @@
 <main class="home-container">
 	<header class="home-header">
-		<div class="user-info">
+		<div class="user-row">
 			<div class="avatar"></div>
-			<div>
-				<div class="user-name">歡迎回家 <span>王小明</span> | 12F-A</div>
+			<div class="user-text">
+				<div class="welcome">歡迎回家</div>
+				<div class="user-line">
+					<span class="user-name">王小明</span>
+					<span class="divider">|</span>
+					<span class="user-unit">12F-A</span>
+				</div>
 			</div>
-			<div class="header-actions">
-				<button class="icon-btn bell" aria-label="通知"><span>🔔</span></button>
-			</div>
+			<button class="icon-btn bell" aria-label="通知">
+				<span class="bell-icon">🔔</span>
+				<span class="bell-dot"></span>
+			</button>
 		</div>
 		<h1 class="page-title">社區首頁</h1>
 	</header>
 
 	<section class="quick-links">
-		<div class="quick-card">
-			<div class="icon">📦</div>
-			<div>包裹收件 <span class="badge">2</span></div>
-			<div class="desc">2 件待領取</div>
-		</div>
-		<div class="quick-card">
-			<div class="icon">📢</div>
-			<div>社區公告</div>
-			<div class="desc">查看重要訊息</div>
-		</div>
-		<div class="quick-card">
-			<div class="icon">🛠️</div>
-			<div>報修申請</div>
-			<div class="desc">線上報修服務</div>
-		</div>
-		<div class="quick-card">
-			<div class="icon">📅</div>
-			<div>公設預約</div>
-			<div class="desc">各項設施預定</div>
-		</div>
+		<a class="quick-card" routerLink="/parcels">
+			<div class="icon-wrap icon-parcel">📦</div>
+			<span class="badge">2</span>
+			<div class="card-title">包裹收件</div>
+			<div class="card-desc">2 件待領取</div>
+		</a>
+		<a class="quick-card" routerLink="/announcements">
+			<div class="icon-wrap icon-announce">📣</div>
+			<div class="card-title">社區公告</div>
+			<div class="card-desc">查看重要訊息</div>
+		</a>
+		<a class="quick-card" routerLink="/maintenance">
+			<div class="icon-wrap icon-wrench">🛠️</div>
+			<div class="card-title">報修申請</div>
+			<div class="card-desc">線上報修服務</div>
+		</a>
+		<a class="quick-card" routerLink="/facilities">
+			<div class="icon-wrap icon-calendar">📅</div>
+			<div class="card-title">公設預約</div>
+			<div class="card-desc">各項設施預定</div>
+		</a>
 	</section>
 
 	<section class="latest-section">
 		<div class="section-title-row">
 			<h2 class="section-title">最新動態</h2>
-			<a class="view-all" href="#">查看全部</a>
+			<a class="view-all" routerLink="/announcements">查看全部</a>
 		</div>
 		<div class="activity-list">
-			<article class="activity-card">
-				<div class="activity-icon">📦</div>
+			<a class="activity-card" routerLink="/parcels/1">
+				<div class="activity-icon icon-parcel">📦</div>
 				<div class="activity-content">
 					<div class="activity-title">您的包裹已送達領取櫃</div>
 					<div class="activity-desc">智慧取物櫃 #204・剛剛</div>
 				</div>
-			</article>
-			<article class="activity-card">
-				<div class="activity-icon">📢</div>
+				<span class="chevron">›</span>
+			</a>
+			<a class="activity-card" routerLink="/announcements/1">
+				<div class="activity-icon icon-announce">📣</div>
 				<div class="activity-content">
 					<div class="activity-title">年度消防安檢通知</div>
 					<div class="activity-desc">管理委員會・2 小時前</div>
 				</div>
-			</article>
-			<article class="activity-card">
-				<div class="activity-icon">📅</div>
+				<span class="chevron">›</span>
+			</a>
+			<a class="activity-card" routerLink="/facility-bookings/1">
+				<div class="activity-icon icon-calendar">📅</div>
 				<div class="activity-content">
 					<div class="activity-title">公設預約已確認</div>
 					<div class="activity-desc">多功能健身房・今晚 19:00・5 小時前</div>
 				</div>
-			</article>
+				<span class="chevron">›</span>
+			</a>
 		</div>
 	</section>
 

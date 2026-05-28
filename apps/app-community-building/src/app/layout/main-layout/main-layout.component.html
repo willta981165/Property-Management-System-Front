@@ -1,4 +1,27 @@
 <div class="main-layout">
-  <h1>一般住戶版型</h1>
-  <router-outlet></router-outlet>
+  <div class="layout-content">
+    <router-outlet></router-outlet>
+  </div>
+  <nav class="layout-bottom-nav">
+    <a class="nav-item" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">首頁</span>
+    </a>
+    <a class="nav-item" routerLink="/parcels" routerLinkActive="active">
+      <span class="nav-icon">📦</span>
+      <span class="nav-label">包裹</span>
+    </a>
+    <a class="nav-item" routerLink="/maintenance" routerLinkActive="active">
+      <span class="nav-icon">🛠️</span>
+      <span class="nav-label">報修</span>
+    </a>
+    <a class="nav-item" routerLink="/facilities" routerLinkActive="active">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">預約</span>
+    </a>
+    <a class="nav-item" routerLink="/profile" routerLinkActive="active">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">個人</span>
+    </a>
+  </nav>
 </div>
