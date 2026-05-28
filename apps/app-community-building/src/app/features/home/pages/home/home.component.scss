@@ -3,6 +3,10 @@
 	padding: 0 1.25rem 1.5rem;
 	background: #f5f7fb;
 	min-height: 100%;
+
+	mat-icon {
+		color: inherit;
+	}
 }
 
 .home-header {
@@ -58,7 +62,12 @@
 			padding: 0.4rem;
 			cursor: pointer;
 
-			.bell-icon { font-size: 1.4rem; }
+			.bell-icon {
+				font-size: 24px;
+				width: 24px;
+				height: 24px;
+				color: #0f172a;
+			}
 
 			.bell-dot {
 				position: absolute;
@@ -106,13 +115,18 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 1.4rem;
 			margin-bottom: 0.4rem;
 
-			&.icon-parcel { background: #fef3c7; }
-			&.icon-announce { background: #e5e7eb; }
-			&.icon-wrench { background: #e5e7eb; }
-			&.icon-calendar { background: #e5e7eb; }
+			mat-icon {
+				font-size: 24px;
+				width: 24px;
+				height: 24px;
+			}
+
+			&.icon-parcel { background: #fef3c7; color: #d97706; }
+			&.icon-announce { background: #e5e7eb; color: #475569; }
+			&.icon-wrench { background: #e5e7eb; color: #475569; }
+			&.icon-calendar { background: #e5e7eb; color: #475569; }
 		}
 
 		.badge {
@@ -190,12 +204,17 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 1.1rem;
 				flex-shrink: 0;
 
-				&.icon-parcel { background: #fef3c7; }
-				&.icon-announce { background: #e5e7eb; }
-				&.icon-calendar { background: #dbeafe; }
+				mat-icon {
+					font-size: 20px;
+					width: 20px;
+					height: 20px;
+				}
+
+				&.icon-parcel { background: #fef3c7; color: #d97706; }
+				&.icon-announce { background: #e5e7eb; color: #475569; }
+				&.icon-calendar { background: #dbeafe; color: #1d4ed8; }
 			}
 
 			.activity-content {
@@ -217,9 +236,9 @@
 
 			.chevron {
 				color: #cbd5e1;
-				font-size: 1.6rem;
-				font-weight: 300;
-				line-height: 1;
+				font-size: 24px;
+				width: 24px;
+				height: 24px;
 			}
 		}
 	}

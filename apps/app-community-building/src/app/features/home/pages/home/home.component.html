@@ -11,7 +11,7 @@
 				</div>
 			</div>
 			<button class="icon-btn bell" aria-label="通知">
-				<span class="bell-icon">🔔</span>
+				<mat-icon class="bell-icon">notifications</mat-icon>
 				<span class="bell-dot"></span>
 			</button>
 		</div>
@@ -20,23 +20,23 @@
 
 	<section class="quick-links">
 		<a class="quick-card" routerLink="/parcels">
-			<div class="icon-wrap icon-parcel">📦</div>
+			<div class="icon-wrap icon-parcel"><mat-icon>inventory_2</mat-icon></div>
 			<span class="badge">2</span>
 			<div class="card-title">包裹收件</div>
 			<div class="card-desc">2 件待領取</div>
 		</a>
 		<a class="quick-card" routerLink="/announcements">
-			<div class="icon-wrap icon-announce">📣</div>
+			<div class="icon-wrap icon-announce"><mat-icon>campaign</mat-icon></div>
 			<div class="card-title">社區公告</div>
 			<div class="card-desc">查看重要訊息</div>
 		</a>
 		<a class="quick-card" routerLink="/maintenance">
-			<div class="icon-wrap icon-wrench">🛠️</div>
+			<div class="icon-wrap icon-wrench"><mat-icon>build</mat-icon></div>
 			<div class="card-title">報修申請</div>
 			<div class="card-desc">線上報修服務</div>
 		</a>
 		<a class="quick-card" routerLink="/facilities">
-			<div class="icon-wrap icon-calendar">📅</div>
+			<div class="icon-wrap icon-calendar"><mat-icon>event</mat-icon></div>
 			<div class="card-title">公設預約</div>
 			<div class="card-desc">各項設施預定</div>
 		</a>
@@ -49,28 +49,28 @@
 		</div>
 		<div class="activity-list">
 			<a class="activity-card" routerLink="/parcels/1">
-				<div class="activity-icon icon-parcel">📦</div>
+				<div class="activity-icon icon-parcel"><mat-icon>inventory_2</mat-icon></div>
 				<div class="activity-content">
 					<div class="activity-title">您的包裹已送達領取櫃</div>
 					<div class="activity-desc">智慧取物櫃 #204・剛剛</div>
 				</div>
-				<span class="chevron">›</span>
+				<mat-icon class="chevron">chevron_right</mat-icon>
 			</a>
 			<a class="activity-card" routerLink="/announcements/1">
-				<div class="activity-icon icon-announce">📣</div>
+				<div class="activity-icon icon-announce"><mat-icon>campaign</mat-icon></div>
 				<div class="activity-content">
 					<div class="activity-title">年度消防安檢通知</div>
 					<div class="activity-desc">管理委員會・2 小時前</div>
 				</div>
-				<span class="chevron">›</span>
+				<mat-icon class="chevron">chevron_right</mat-icon>
 			</a>
 			<a class="activity-card" routerLink="/facility-bookings/1">
-				<div class="activity-icon icon-calendar">📅</div>
+				<div class="activity-icon icon-calendar"><mat-icon>event</mat-icon></div>
 				<div class="activity-content">
 					<div class="activity-title">公設預約已確認</div>
 					<div class="activity-desc">多功能健身房・今晚 19:00・5 小時前</div>
 				</div>
-				<span class="chevron">›</span>
+				<mat-icon class="chevron">chevron_right</mat-icon>
 			</a>
 		</div>
 	</section>
