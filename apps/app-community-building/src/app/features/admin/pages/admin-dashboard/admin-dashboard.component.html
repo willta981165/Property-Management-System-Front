@@ -1,34 +1,37 @@
 <main class="admin-dashboard-container">
 	<header class="admin-header">
 		<div class="brand-row">
-			<div class="avatar"></div>
+			<div class="avatar" [style.backgroundImage]="user()?.avatar ? 'url(' + user()!.avatar + ')' : null"></div>
 			<div class="brand-title">Resident Portal</div>
 			<button class="icon-btn" aria-label="通知">
 				<mat-icon class="bell-icon">notifications</mat-icon>
 			</button>
+			<button class="icon-btn" aria-label="登出" (click)="logout()">
+				<mat-icon class="bell-icon">logout</mat-icon>
+			</button>
 		</div>
 		<div class="role-badge">物業管理員</div>
-		<h1 class="greeting">陳大文，早安</h1>
-		<div class="date-text">今天是 2026年5月24日星期日</div>
+		<h1 class="greeting">{{ user()?.name || '管理員' }}，早安</h1>
+		<div class="date-text">今天是 {{ today }}</div>
 	</header>
 
 	<section class="stats-row">
 		<div class="stat-card">
 			<mat-icon class="stat-icon icon-parcel">inventory_2</mat-icon>
 			<div class="stat-label">待處理包裹</div>
-			<div class="stat-value">24</div>
+			<div class="stat-value">{{ stats.todayParcels }}</div>
 		</div>
 		<div class="stat-card">
 			<mat-icon class="stat-icon icon-wrench">build</mat-icon>
 			<div class="stat-label">進行中報修</div>
-			<div class="stat-value">12</div>
+			<div class="stat-value">{{ stats.pendingMaintenance }}</div>
 		</div>
 	</section>
 
 	<section class="today-booking-card">
 		<div class="today-info">
 			<div class="today-label">今日預約</div>
-			<div class="today-value">8 項設施預約</div>
+			<div class="today-value">{{ stats.todayBookings }} 項設施預約</div>
 		</div>
 		<mat-icon class="today-icon">event</mat-icon>
 	</section>

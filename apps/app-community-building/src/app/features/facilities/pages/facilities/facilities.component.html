@@ -1,1 +1,32 @@
-<h2>公設列表頁</h2>
+<main class="list-container">
+	<header class="list-header">
+		<h1 class="page-title">公設預約</h1>
+		<p class="page-subtitle">{{ facilities.length }} 項可用設施</p>
+	</header>
+
+	<section class="facility-grid">
+		<a class="facility-card"
+			*ngFor="let f of facilities"
+			[routerLink]="f.bookable ? ['/facilities', f.id, 'booking'] : null"
+			[class.disabled]="!f.bookable">
+			<div class="f-icon"><mat-icon>{{ f.icon }}</mat-icon></div>
+			<div class="f-info">
+				<div class="f-name">{{ f.name }}</div>
+				<div class="f-meta">
+					<mat-icon>schedule</mat-icon>
+					<span>{{ f.openHours }}</span>
+				</div>
+				<div class="f-meta">
+					<mat-icon>groups</mat-icon>
+					<span>容納 {{ f.capacity }} 人</span>
+				</div>
+			</div>
+			<div class="f-foot">
+				<span class="status" [class.ok]="f.bookable" [class.off]="!f.bookable">
+					{{ f.bookable ? '可預約' : '暫不開放' }}
+				</span>
+				<span class="today" *ngIf="f.bookable">今日 {{ f.todayBookings }} 筆</span>
+			</div>
+		</a>
+	</section>
+</main>

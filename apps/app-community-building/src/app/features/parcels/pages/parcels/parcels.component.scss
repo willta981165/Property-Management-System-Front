@@ -1,0 +1,107 @@
+// Parcels Page Styles
+.list-container {
+	padding: 1.25rem 1.25rem 1.5rem;
+	background: #f5f7fb;
+	min-height: 100%;
+	max-width: 480px;
+	margin: 0 auto;
+
+	mat-icon {
+		color: inherit;
+	}
+}
+
+.list-header {
+	margin-bottom: 1rem;
+
+	.page-title {
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: #0f172a;
+		margin: 0;
+	}
+	.page-subtitle {
+		color: #64748b;
+		font-size: 0.9rem;
+		margin: 0.25rem 0 0;
+	}
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+
+.list-card {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	background: #fff;
+	border-radius: 0.85rem;
+	box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+	padding: 0.95rem 1rem;
+	text-decoration: none;
+	color: inherit;
+
+	.icon {
+		width: 42px;
+		height: 42px;
+		border-radius: 0.6rem;
+		background: #fef3c7;
+		color: #d97706;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+
+		mat-icon { font-size: 22px; width: 22px; height: 22px; }
+	}
+
+	.content {
+		flex: 1;
+		min-width: 0;
+
+		.row1 {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 0.5rem;
+
+			.title {
+				font-size: 0.95rem;
+				font-weight: 700;
+				color: #0f172a;
+			}
+
+			.status {
+				font-size: 0.72rem;
+				font-weight: 700;
+				padding: 0.2rem 0.55rem;
+				border-radius: 999px;
+
+				&.pending { background: #fef3c7; color: #b45309; }
+				&.done { background: #dcfce7; color: #15803d; }
+			}
+		}
+
+		.desc {
+			color: #475569;
+			font-size: 0.85rem;
+			margin-top: 0.25rem;
+		}
+
+		.meta {
+			color: #94a3b8;
+			font-size: 0.78rem;
+			margin-top: 0.2rem;
+		}
+	}
+
+	.chevron {
+		color: #cbd5e1;
+		font-size: 22px;
+		width: 22px;
+		height: 22px;
+	}
+}

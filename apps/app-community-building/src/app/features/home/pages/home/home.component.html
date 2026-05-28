@@ -1,13 +1,13 @@
 <main class="home-container">
 	<header class="home-header">
 		<div class="user-row">
-			<div class="avatar"></div>
+			<div class="avatar" [style.backgroundImage]="user()?.avatar ? 'url(' + user()!.avatar + ')' : null"></div>
 			<div class="user-text">
 				<div class="welcome">歡迎回家</div>
 				<div class="user-line">
-					<span class="user-name">王小明</span>
-					<span class="divider">|</span>
-					<span class="user-unit">12F-A</span>
+					<span class="user-name">{{ user()?.name || '住戶' }}</span>
+					<span class="divider" *ngIf="user()?.unit">|</span>
+					<span class="user-unit" *ngIf="user()?.unit">{{ user()?.unit }}</span>
 				</div>
 			</div>
 			<button class="icon-btn bell" aria-label="通知">

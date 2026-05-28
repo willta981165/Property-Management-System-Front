@@ -1,24 +1,33 @@
 import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { authGuard, roleGuard } from './core/auth.guards';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
 
   // ===== Auth =====
-  /**
-   * 功能頁面：登入頁
-   */
   {
-    path: 'login',
-    loadComponent: () => import('./features/auth/pages/login/login.component').then(m => m.LoginComponent),
-    data: { layout: 'auth' }
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      /** 功能頁面：登入頁 */
+      {
+        path: 'login',
+        loadComponent: () => import('./features/auth/pages/login/login.component').then(m => m.LoginComponent)
+      }
+    ]
   },
+
+  // 別名：/resident/home → /home（符合 auth flow 規格）
+  { path: 'resident/home', pathMatch: 'full', redirectTo: 'home' },
 
   // ===== 住戶端 MainLayout =====
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard, roleGuard(['resident'])],
     children: [
       /** 功能頁面：住戶首頁 */
       { path: 'home', loadComponent: () => import('./features/home/pages/home/home.component').then(m => m.HomeComponent) },
@@ -51,9 +60,11 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [authGuard, roleGuard(['admin'])],
     children: [
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       /** 功能頁面：管理員首頁 */
-      { path: '', loadComponent: () => import('./features/admin/pages/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent) },
+      { path: 'dashboard', loadComponent: () => import('./features/admin/pages/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent) },
       /** 功能頁面：住戶管理頁 */
       { path: 'residents', loadComponent: () => import('./features/admin/pages/admin-residents/admin-residents.component').then(m => m.AdminResidentsComponent) },
       /** 功能頁面：管理員包裹管理頁 */
@@ -67,5 +78,5 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'login' }
 ];

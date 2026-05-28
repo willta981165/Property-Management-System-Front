@@ -1,1 +1,55 @@
-<h2>個人中心頁</h2>
+<main class="profile-container" *ngIf="user() as u">
+	<section class="profile-card">
+		<div class="avatar" [style.backgroundImage]="'url(' + u.avatar + ')'"></div>
+		<div class="user-name">{{ u.name }}</div>
+		<div class="user-meta">
+			<span class="badge-role">一般住戶</span>
+			<span class="meta-unit" *ngIf="u.unit">{{ u.unit }}</span>
+		</div>
+	</section>
+
+	<section class="info-section">
+		<h2 class="section-title">住戶資訊</h2>
+		<div class="info-list">
+			<div class="info-row">
+				<div class="info-icon"><mat-icon>badge</mat-icon></div>
+				<div class="info-label">住戶身份</div>
+				<div class="info-value">一般住戶</div>
+			</div>
+			<div class="info-row" *ngIf="u.unit">
+				<div class="info-icon"><mat-icon>home</mat-icon></div>
+				<div class="info-label">房號</div>
+				<div class="info-value">{{ u.unit }}</div>
+			</div>
+			<div class="info-row" *ngIf="u.phone">
+				<div class="info-icon"><mat-icon>phone</mat-icon></div>
+				<div class="info-label">聯絡電話</div>
+				<div class="info-value">{{ u.phone }}</div>
+			</div>
+			<div class="info-row" *ngIf="u.email">
+				<div class="info-icon"><mat-icon>mail</mat-icon></div>
+				<div class="info-label">電子郵件</div>
+				<div class="info-value">{{ u.email }}</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="info-section">
+		<h2 class="section-title">設定</h2>
+		<div class="setting-list">
+			<button class="setting-row" type="button" *ngFor="let s of settings">
+				<div class="info-icon"><mat-icon>{{ s.icon }}</mat-icon></div>
+				<div class="setting-text">
+					<div class="setting-label">{{ s.label }}</div>
+					<div class="setting-desc">{{ s.desc }}</div>
+				</div>
+				<mat-icon class="chevron">chevron_right</mat-icon>
+			</button>
+		</div>
+	</section>
+
+	<button class="logout-btn" type="button" (click)="logout()">
+		<mat-icon>logout</mat-icon>
+		<span>登出</span>
+	</button>
+</main>

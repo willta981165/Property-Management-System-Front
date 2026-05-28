@@ -1,1 +1,22 @@
-<h2>包裹列表頁</h2>
+<main class="list-container">
+	<header class="list-header">
+		<h1 class="page-title">包裹收件</h1>
+		<p class="page-subtitle">{{ parcels.length }} 件包裹紀錄</p>
+	</header>
+	<section class="list">
+		<a class="list-card" *ngFor="let p of parcels" [routerLink]="['/parcels', p.id]">
+			<div class="icon"><mat-icon>inventory_2</mat-icon></div>
+			<div class="content">
+				<div class="row1">
+					<span class="title">{{ p.trackingNo }}</span>
+					<span class="status" [class.pending]="p.status === 'pending'" [class.done]="p.status === 'picked'">
+						{{ statusLabel(p.status) }}
+					</span>
+				</div>
+				<div class="desc">{{ p.note || '—' }}</div>
+				<div class="meta">{{ p.arrivedAt }}</div>
+			</div>
+			<mat-icon class="chevron">chevron_right</mat-icon>
+		</a>
+	</section>
+</main>
