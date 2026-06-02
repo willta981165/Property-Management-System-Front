@@ -1,5 +1,43 @@
-<main class="resident-facility-booking-create-container">
-  <h1>建立公設預約</h1>
-  <p>這裡是住戶建立公設預約頁，請依步驟填寫預約資訊。</p>
-  <section class="mock-block">[Mock 建立公設預約表單區塊]</section>
+<main class="stitch-page resident-booking-create-page">
+  <header>
+    <h1 class="stitch-title">建立公設預約</h1>
+    <p class="stitch-subtitle">健身房 A 區 ・ 每次預約 2 點</p>
+  </header>
+
+  <section class="stitch-card stitch-card-pad">
+    <h2 class="stitch-section-title">預約資訊</h2>
+    <div class="stitch-list">
+      <label class="stitch-field">
+        <span class="stitch-label">日期</span>
+        <input class="stitch-input" type="date" />
+      </label>
+      <label class="stitch-field">
+        <span class="stitch-label">時段</span>
+        <select class="stitch-select">
+          <option>18:00 - 19:00</option>
+          <option>19:00 - 20:00</option>
+          <option>20:00 - 21:00</option>
+        </select>
+      </label>
+      <label class="stitch-field">
+        <span class="stitch-label">使用人數</span>
+        <input class="stitch-input" type="number" value="1" min="1" max="8" />
+      </label>
+      <label class="stitch-field">
+        <span class="stitch-label">備註（選填）</span>
+        <textarea class="stitch-textarea" placeholder="例如：需瑜珈墊 2 份"></textarea>
+      </label>
+    </div>
+  </section>
+
+  <section class="stitch-card stitch-card-pad hint-card">
+    <h2 class="stitch-section-title">規範提醒</h2>
+    <ul>
+      <li>請提前 10 分鐘完成報到。</li>
+      <li>未到場超過 2 次，系統將暫停預約 3 天。</li>
+      <li>若需取消，請於 1 小時前操作。</li>
+    </ul>
+  </section>
+
+  <button type="button" class="stitch-btn stitch-btn-primary">確認預約</button>
 </main>

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 /**
  * 功能頁面：公告列表頁
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-announcements',
   standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './announcements.component.html',
   styleUrls: ['./announcements.component.scss']
 })

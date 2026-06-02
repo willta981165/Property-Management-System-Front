@@ -1,0 +1,72 @@
+@use '../../styles/civic-auth-shared' as *;
+
+.admin-register-page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.auth-topbar.center-title {
+  .topbar-action {
+    width: 28px;
+  }
+
+  .topbar-placeholder {
+    width: 28px;
+    display: inline-block;
+  }
+}
+
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .auth-title {
+    font-size: 52px;
+  }
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.switch-auth {
+  margin: 0;
+  text-align: center;
+  color: #44474e;
+  font-size: 17px;
+  line-height: 22px;
+}
+
+.secure-portal {
+  margin-top: auto;
+  border-radius: 16px;
+  background: #ededf2;
+  min-height: 88px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #75777e;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  font-weight: 600;
+
+  mat-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}

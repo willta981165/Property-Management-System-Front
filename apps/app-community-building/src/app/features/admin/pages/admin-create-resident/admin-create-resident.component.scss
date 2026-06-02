@@ -1,134 +1,40 @@
-// 管理員：建立住戶帳號頁面 SCSS skeleton，依 prototype 與架構分析建議
-.admin-create-resident-container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 0 1.5rem 2rem 1.5rem;
-  background: #f8fafc;
-}
-.admin-create-resident-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  .page-title {
-    font-size: 1.3rem;
-    font-weight: 700;
+.admin-create-resident-page {
+  .inline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
-  .back-btn, .save-btn {
-    background: none;
-    border: none;
-    font-size: 1.1rem;
-    color: #1e293b;
-    cursor: pointer;
-    font-weight: 600;
+
+  .pwd-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.65rem;
   }
-}
-.form-section {
-  margin-top: 1.2rem;
-  .form-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-  }
-  .form-desc {
-    color: #64748b;
-    font-size: 0.98rem;
-    margin-bottom: 1.2rem;
-  }
-}
-.resident-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  .form-group {
-    display: flex;
-    flex-direction: column;
+
+  .role-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
-    label {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-    input, textarea {
-      border: 1px solid #cbd5e1;
-      border-radius: 0.7rem;
-      padding: 0.7em 1em;
-      font-size: 1rem;
-      background: #fff;
-      resize: none;
-    }
-    textarea { min-height: 60px; }
-    .password-row {
-      display: flex;
-      gap: 0.5rem;
-      input { flex: 1; }
-      .random-btn {
-        background: #1e293b;
-        color: #fff;
-        border: none;
-        border-radius: 0.7rem;
-        padding: 0.5em 1em;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-      }
-    }
-    .role-row {
-      display: flex;
-      gap: 0.7rem;
-      .role-btn {
-        flex: 1;
-        background: #e0e7ef;
-        color: #1e293b;
-        border: none;
-        border-radius: 0.7rem;
-        padding: 0.6em 0;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        &.active {
-          background: #2563eb;
-          color: #fff;
-        }
-      }
+  }
+
+  .role-btn {
+    border: 1px solid #e4e7ec;
+    border-radius: 12px;
+    padding: 0.65rem 0.75rem;
+    background: #f3f5f8;
+    color: #475467;
+    font-weight: 700;
+
+    &.active {
+      color: #031634;
+      background: #e7eefc;
+      border-color: #bfd2fb;
     }
   }
-  .form-banner {
-    margin: 1.5rem 0 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    .banner-img {
-      width: 110px;
-      height: 70px;
-      border-radius: 1rem;
-      background: #cbd5e1 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80') center/cover no-repeat;
+
+  @media (max-width: 640px) {
+    .inline-grid {
+      grid-template-columns: 1fr;
     }
-    .banner-text {
-      .banner-title {
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #64748b;
-      }
-      .banner-desc {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: #1e293b;
-      }
-    }
-  }
-  .submit-btn {
-    margin-top: 1.2rem;
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    border-radius: 0.7rem;
-    padding: 0.9em 1.2em;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    width: 100%;
-    &:hover { background: #1e40af; }
   }
 }

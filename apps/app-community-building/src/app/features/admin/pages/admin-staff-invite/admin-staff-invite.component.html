@@ -1,0 +1,28 @@
+<main class="admin-staff-invite-container">
+  <h1>邀請員工</h1>
+  <p>寄送驗證 Email，讓員工完成身份驗證後進入系統。</p>
+
+  <form class="invite-form" [formGroup]="form" (ngSubmit)="submit()">
+    <label>
+      <span>姓名</span>
+      <input type="text" formControlName="name" placeholder="請輸入員工姓名" />
+    </label>
+
+    <label>
+      <span>員工編號</span>
+      <input type="text" formControlName="employeeId" placeholder="請輸入員工編號" />
+    </label>
+
+    <label>
+      <span>部門</span>
+      <input type="text" formControlName="department" placeholder="請輸入部門" />
+    </label>
+
+    <label>
+      <span>Email</span>
+      <input type="email" formControlName="email" placeholder="name@company.com" />
+    </label>
+
+    <button type="submit">寄送邀請</button>
+  </form>
+</main>

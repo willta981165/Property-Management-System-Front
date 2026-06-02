@@ -1,36 +1,50 @@
-<main class="admin-residents-container">
-	<header class="admin-residents-header">
-		<h1 class="page-title">住戶管理</h1>
-		<button class="add-btn">＋ 新增住戶</button>
+<main class="stitch-page admin-residents-page">
+	<header class="top-wrap">
+		<h1 class="stitch-title">住戶帳號清單</h1>
+		<a class="stitch-btn stitch-btn-primary create-link" routerLink="/admin/residents/create">新增住戶</a>
 	</header>
 
-	<section class="residents-list">
-		<article class="resident-card">
-			<div class="resident-info">
-				<div class="resident-avatar"></div>
-				<div class="resident-meta">
-					<div class="resident-name">王小明</div>
-					<div class="resident-room">12F-A</div>
+	<section class="stitch-card stitch-card-pad search-wrap">
+		<input class="stitch-input" type="text" placeholder="搜尋住戶名稱或單位（例如 A-12F）" />
+		<div class="chip-row">
+			<span class="stitch-chip stitch-chip-success">啟用中</span>
+			<span class="stitch-chip stitch-chip-warning">審核中</span>
+			<span class="stitch-chip stitch-chip-danger">停用中</span>
+		</div>
+	</section>
+
+	<section class="stitch-list">
+		<article class="stitch-card stitch-card-pad resident-item">
+			<div class="left">
+				<span class="avatar">A</span>
+				<div>
+					<p class="name">陳大文 David Chen</p>
+					<p class="meta">A-12F ・ 0912-345-678</p>
 				</div>
 			</div>
-			<div class="resident-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
+			<span class="stitch-chip stitch-chip-success">啟用中</span>
 		</article>
-		<div class="divider"></div>
-		<article class="resident-card">
-			<div class="resident-info">
-				<div class="resident-avatar"></div>
-				<div class="resident-meta">
-					<div class="resident-name">林小華</div>
-					<div class="resident-room">8F-B</div>
+
+		<article class="stitch-card stitch-card-pad resident-item">
+			<div class="left">
+				<span class="avatar">L</span>
+				<div>
+					<p class="name">林美玲 Linda Lin</p>
+					<p class="meta">B-05C ・ 0921-987-654</p>
 				</div>
 			</div>
-			<div class="resident-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
+			<span class="stitch-chip stitch-chip-success">啟用中</span>
+		</article>
+
+		<article class="stitch-card stitch-card-pad resident-item">
+			<div class="left">
+				<span class="avatar">W</span>
+				<div>
+					<p class="name">王小明 Kevin Wang</p>
+					<p class="meta">C-22A ・ 0933-222-111</p>
+				</div>
 			</div>
+			<span class="stitch-chip stitch-chip-danger">停用中</span>
 		</article>
 	</section>
 </main>

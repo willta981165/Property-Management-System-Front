@@ -1,47 +1,44 @@
-<main class="admin-maintenance-container">
-	<header class="admin-maintenance-header">
-		<h1 class="page-title">報修案件管理</h1>
-		<button class="add-btn">＋ 新增報修</button>
-	</header>
+<main class="stitch-page admin-maintenance-page">
+  <header class="top-wrap">
+    <h1 class="stitch-title">報修管理</h1>
+    <button class="stitch-btn stitch-btn-primary">新增工單</button>
+  </header>
 
-	<section class="maintenance-list">
-		<article class="maintenance-card">
-			<div class="card-header">
-				<span class="status status-pending">待處理</span>
-				<span class="date">2024/05/27</span>
-			</div>
-			<div class="card-title">廚房水龍頭漏水</div>
-			<div class="card-content">12F-A・王小明</div>
-			<div class="card-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
-		</article>
-		<div class="divider"></div>
-		<article class="maintenance-card">
-			<div class="card-header">
-				<span class="status status-inprogress">處理中</span>
-				<span class="date">2024/05/25</span>
-			</div>
-			<div class="card-title">電梯異常聲響</div>
-			<div class="card-content">管理委員會</div>
-			<div class="card-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
-		</article>
-		<div class="divider"></div>
-		<article class="maintenance-card">
-			<div class="card-header">
-				<span class="status status-done">已完成</span>
-				<span class="date">2024/05/20</span>
-			</div>
-			<div class="card-title">大廳燈泡更換</div>
-			<div class="card-content">管理委員會</div>
-			<div class="card-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
-		</article>
-	</section>
+  <section class="stitch-card stitch-card-pad filter-card">
+    <input class="stitch-input" type="text" placeholder="搜尋報修單號或房號" />
+    <div class="filter-row">
+      <span class="stitch-chip stitch-chip-warning">待處理</span>
+      <span class="stitch-chip stitch-chip-danger">進行中</span>
+      <span class="stitch-chip stitch-chip-success">已完成</span>
+    </div>
+  </section>
+
+  <section class="stitch-list">
+    <article class="stitch-card stitch-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8821 ・ Unit 3B</p>
+        <span class="stitch-chip stitch-chip-warning">待處理</span>
+      </div>
+      <p class="title">廚房水龍頭漏水</p>
+      <p class="desc">住戶回報漏水加劇，請優先派工。</p>
+    </article>
+
+    <article class="stitch-card stitch-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8795 ・ Unit 12A</p>
+        <span class="stitch-chip stitch-chip-danger">進行中</span>
+      </div>
+      <p class="title">客廳燈具閃爍</p>
+      <p class="desc">王師傅已抵達現場，待更新修復結果。</p>
+    </article>
+
+    <article class="stitch-card stitch-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8742 ・ Unit 8F</p>
+        <span class="stitch-chip stitch-chip-success">已完成</span>
+      </div>
+      <p class="title">空調異味與濾網清洗</p>
+      <p class="desc">已完成並由住戶簽收。</p>
+    </article>
+  </section>
 </main>

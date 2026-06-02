@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { StitchButtonComponent } from '@stitch/ui-kits';
 
 import { MockAuthService } from '../../../../core/mock-auth.service';
 
@@ -12,55 +13,57 @@ import { MockAuthService } from '../../../../core/mock-auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, StitchButtonComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  account = '';
-  password = '';
-  showPassword = signal(false);
-  errorMsg = signal<string | null>(null);
-  loading = signal(false);
+  private readonly fb = inject(FormBuilder);
+  private readonly auth = inject(MockAuthService);
+  private readonly router = inject(Router);
 
-  constructor(
-    private readonly auth: MockAuthService,
-    private readonly router: Router
-  ) {}
+  readonly form = this.fb.group({
+    account: ['', Validators.required],
+    password: ['', Validators.required],
+    rememberMe: [false]
+  });
+
+  submitted = false;
+  showPassword = false;
+  errorMsg: string | null = null;
+  loading = false;
+
+  goBack(): void {
+    this.router.navigateByUrl('/auth/welcome');
+  }
 
   togglePassword(): void {
-    this.showPassword.update((v) => !v);
+    this.showPassword = !this.showPassword;
   }
 
   /** mock 登入 */
   submit(): void {
-    this.errorMsg.set(null);
-    if (!this.account.trim() || !this.password) {
-      this.errorMsg.set('請輸入帳號與密碼');
+    this.submitted = true;
+    this.errorMsg = null;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
-    this.loading.set(true);
-    const user = this.auth.login(this.account, this.password);
-    this.loading.set(false);
+
+    const { account, password } = this.form.getRawValue();
+    this.loading = true;
+    const user = this.auth.login(account ?? '', password ?? '');
+    this.loading = false;
+
     if (!user) {
-      this.errorMsg.set('帳號或密碼錯誤');
+      this.errorMsg = '帳號或密碼錯誤';
       return;
     }
+
     if (user.role === 'admin') {
       this.router.navigateByUrl('/admin/dashboard');
     } else {
       this.router.navigateByUrl('/home');
-    }
-  }
-
-  /** 一鍵填入測試帳號 */
-  fillDemo(role: 'admin' | 'resident'): void {
-    if (role === 'admin') {
-      this.account = 'admin';
-      this.password = 'adm123';
-    } else {
-      this.account = 'resident';
-      this.password = 'res123';
     }
   }
 }

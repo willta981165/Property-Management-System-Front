@@ -1,0 +1,174 @@
+:root {
+  --stitch-primary: #031634;
+  --stitch-primary-soft: #e7eefc;
+  --stitch-surface: #f9f9fe;
+  --stitch-card: #ffffff;
+  --stitch-muted: #667085;
+  --stitch-border: #e4e7ec;
+  --stitch-warning-bg: #fff3e0;
+  --stitch-warning-text: #9a5f00;
+  --stitch-success-bg: #e7f8ef;
+  --stitch-success-text: #117a43;
+  --stitch-danger-bg: #ffe8e6;
+  --stitch-danger-text: #ba1a1a;
+}
+
+.stitch-page {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stitch-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stitch-title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: var(--stitch-primary);
+  font-weight: 700;
+}
+
+.stitch-subtitle {
+  margin: 0;
+  color: var(--stitch-muted);
+  font-size: 0.95rem;
+}
+
+.stitch-card {
+  background: var(--stitch-card);
+  border: 1px solid var(--stitch-border);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(2, 6, 23, 0.04);
+}
+
+.stitch-card-pad {
+  padding: 1rem;
+}
+
+.stitch-section-title {
+  margin: 0 0 0.75rem;
+  color: var(--stitch-primary);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.stitch-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.stitch-chip-warning {
+  background: var(--stitch-warning-bg);
+  color: var(--stitch-warning-text);
+}
+
+.stitch-chip-success {
+  background: var(--stitch-success-bg);
+  color: var(--stitch-success-text);
+}
+
+.stitch-chip-danger {
+  background: var(--stitch-danger-bg);
+  color: var(--stitch-danger-text);
+}
+
+.stitch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stitch-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stitch-label {
+  color: var(--stitch-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.stitch-input,
+.stitch-select,
+.stitch-textarea {
+  width: 100%;
+  border: 1px solid var(--stitch-border);
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.72rem 0.85rem;
+  font-size: 0.95rem;
+  color: #111827;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.stitch-input::placeholder,
+.stitch-textarea::placeholder {
+  color: #9aa3b2;
+}
+
+.stitch-input:focus,
+.stitch-select:focus,
+.stitch-textarea:focus {
+  border-color: #2458b8;
+  box-shadow: 0 0 0 3px rgba(36, 88, 184, 0.15);
+  outline: none;
+}
+
+.stitch-input:disabled,
+.stitch-select:disabled,
+.stitch-textarea:disabled {
+  background: #eef1f6;
+  color: #9aa3b2;
+  border-color: #e0e5ee;
+  cursor: not-allowed;
+}
+
+.stitch-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.stitch-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.stitch-btn-primary {
+  background: var(--stitch-primary);
+  color: #fff;
+}
+
+.stitch-btn-soft {
+  background: var(--stitch-primary-soft);
+  color: var(--stitch-primary);
+}
+
+.stitch-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .stitch-page {
+    padding: 1.25rem;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+}

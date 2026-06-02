@@ -64,8 +64,22 @@ export class MockAuthService {
 
   /** mock 登入：成功回傳 user，失敗回傳 null */
   login(account: string, password: string): MockUser | null {
+    const normalizedAccount = account.trim().toLowerCase();
+    const normalizedPassword = password.trim();
+    const normalizedPasswordLower = normalizedPassword.toLowerCase();
+
+    const isAdminPassword = (rawAccount: string): boolean => {
+      if (rawAccount.toLowerCase() !== 'admin') {
+        return false;
+      }
+
+      return ['adm123', 'admin123'].includes(normalizedPasswordLower);
+    };
+
     const hit = MOCK_ACCOUNTS.find(
-      (a) => a.account === account.trim() && a.password === password
+      (a) =>
+        a.account.toLowerCase() === normalizedAccount &&
+        (a.password === normalizedPassword || isAdminPassword(a.account))
     );
     if (!hit) return null;
     this._user.set(hit.user);

@@ -1,0 +1,21 @@
+.admin-settings-page {
+  .setting-item {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.04rem;
+    color: #031634;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #475467;
+  }
+}

@@ -1,34 +1,35 @@
-<main class="announcements-container">
-	<header class="announcements-header">
-		<h1 class="page-title">社區公告</h1>
-	</header>
+<main class="stitch-page announcements-page">
+  <header>
+    <h1 class="stitch-title">社區公告</h1>
+    <p class="stitch-subtitle">所有住戶都會收到重要公告推播。</p>
+  </header>
 
-	<section class="announcements-list">
-		<article class="announcement-card unread">
-			<div class="card-header">
-				<span class="badge">重要</span>
-				<span class="date">2024/05/28</span>
-			</div>
-			<div class="card-title">年度消防安檢通知</div>
-			<div class="card-content">本社區將於 6/10 進行年度消防安檢，請各戶配合。</div>
-		</article>
-		<div class="divider"></div>
-		<article class="announcement-card">
-			<div class="card-header">
-				<span class="badge">一般</span>
-				<span class="date">2024/05/25</span>
-			</div>
-			<div class="card-title">端午連假垃圾清運公告</div>
-			<div class="card-content">連假期間垃圾清運時間異動，詳見公告。</div>
-		</article>
-		<div class="divider"></div>
-		<article class="announcement-card">
-			<div class="card-header">
-				<span class="badge">一般</span>
-				<span class="date">2024/05/20</span>
-			</div>
-			<div class="card-title">停水通知</div>
-			<div class="card-content">5/22(三) 09:00-17:00 將進行水塔清洗，期間暫停供水。</div>
-		</article>
-	</section>
+  <section class="stitch-list">
+    <a class="stitch-card stitch-card-pad ann-item" routerLink="/announcements/1">
+      <div class="head-row">
+        <span class="stitch-chip stitch-chip-danger">重要</span>
+        <p class="date">2024/06/01</p>
+      </div>
+      <p class="title">年度消防安檢通知</p>
+      <p class="desc">6/10 至 6/12 將進行年度消防巡檢，請住戶配合安排。</p>
+    </a>
+
+    <a class="stitch-card stitch-card-pad ann-item" routerLink="/announcements/2">
+      <div class="head-row">
+        <span class="stitch-chip stitch-chip-warning">一般</span>
+        <p class="date">2024/05/28</p>
+      </div>
+      <p class="title">端午連假垃圾清運公告</p>
+      <p class="desc">連假期間垃圾清運時間異動，詳見內文說明。</p>
+    </a>
+
+    <a class="stitch-card stitch-card-pad ann-item" routerLink="/announcements/3">
+      <div class="head-row">
+        <span class="stitch-chip stitch-chip-warning">一般</span>
+        <p class="date">2024/05/20</p>
+      </div>
+      <p class="title">停水通知</p>
+      <p class="desc">5/22 09:00 - 17:00 進行水塔清洗，期間暫停供水。</p>
+    </a>
+  </section>
 </main>

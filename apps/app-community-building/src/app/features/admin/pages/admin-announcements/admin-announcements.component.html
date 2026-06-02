@@ -1,34 +1,61 @@
-<main class="admin-announcements-container">
-	<header class="admin-announcements-header">
-		<h1 class="page-title">公告管理</h1>
-		<button class="add-btn">＋ 新增公告</button>
+<main class="admin-announcements-page" [formGroup]="form">
+	<header class="editor-topbar">
+		<button type="button" class="plain-action">取消</button>
+		<h1>發布公告</h1>
+		<button type="button" class="publish-btn" (click)="publish()">發布</button>
 	</header>
 
-	<section class="announcements-list">
-		<article class="announcement-card">
-			<div class="card-header">
-				<span class="badge">重要</span>
-				<span class="date">2024/05/28</span>
-			</div>
-			<div class="card-title">年度消防安檢通知</div>
-			<div class="card-content">本社區將於 6/10 進行年度消防安檢，請各戶配合。</div>
-			<div class="card-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
-		</article>
-		<div class="divider"></div>
-		<article class="announcement-card">
-			<div class="card-header">
-				<span class="badge">一般</span>
-				<span class="date">2024/05/25</span>
-			</div>
-			<div class="card-title">端午連假垃圾清運公告</div>
-			<div class="card-content">連假期間垃圾清運時間異動，詳見公告。</div>
-			<div class="card-actions">
-				<button class="edit-btn">編輯</button>
-				<button class="delete-btn">刪除</button>
-			</div>
-		</article>
+	<section class="editor-body">
+		<label class="field-block">
+			<span>標題</span>
+			<input type="text" formControlName="title" placeholder="輸入公告標題..." />
+		</label>
+
+		<section class="field-block">
+			<span>類別</span>
+			<stitch-tab-select
+				[options]="categoryOptions"
+				[value]="selectedCategory"
+				(valueChange)="setCategory($event)"
+				ariaLabel="公告類別切換">
+			</stitch-tab-select>
+		</section>
+
+		<label class="field-block">
+			<span>發布對象</span>
+			<select formControlName="audience" aria-label="發布對象">
+				<option value="all">全體住戶</option>
+				<option value="building-a">A 棟住戶</option>
+				<option value="building-b">B 棟住戶</option>
+			</select>
+		</label>
+
+		<section class="field-block">
+			<span>內容</span>
+			<stitch-rich-editor
+				[content]="editorHtml"
+				(contentChange)="onEditorModelChange($event)"
+				placeholder="在此輸入公告詳細內容..."
+				ariaLabel="公告內容輸入區">
+			</stitch-rich-editor>
+		</section>
+
+		<section class="field-block image-upload">
+			<span>上傳圖片</span>
+			<stitch-image-upload-single
+				[imageBase64]="uploadedImageBase64"
+				(imageBase64Change)="onImageBase64Change($event)"
+				addButtonLabel="添加圖片"
+				ariaLabel="公告圖片上傳">
+			</stitch-image-upload-single>
+		</section>
 	</section>
+
+	<footer class="editor-footer">
+		<label class="schedule-row">
+			<span>預約發布</span>
+			<input type="checkbox" formControlName="scheduleEnabled" />
+		</label>
+		<button type="button" class="draft-btn" (click)="saveDraft()">儲存草稿</button>
+	</footer>
 </main>

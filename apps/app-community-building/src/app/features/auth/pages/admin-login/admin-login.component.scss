@@ -1,0 +1,134 @@
+@use '../../styles/civic-auth-shared' as *;
+
+.admin-login-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
+}
+
+.hero-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+
+  .auth-title {
+    text-align: center;
+    font-size: 52px;
+    margin-top: 4px;
+  }
+
+  .auth-subtitle {
+    text-align: center;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .auth-icon-tile {
+    margin: 0 auto;
+  }
+}
+
+.auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.remember-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #44474e;
+  font-size: 17px;
+  line-height: 22px;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .toggle-track {
+    width: 42px;
+    height: 26px;
+    border-radius: 999px;
+    background: #d9dade;
+    position: relative;
+    transition: background 0.2s ease;
+
+    .toggle-thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: transform 0.2s ease;
+    }
+  }
+
+  input:checked + .toggle-track {
+    background: #031634;
+
+    .toggle-thumb {
+      transform: translateX(16px);
+    }
+  }
+}
+
+.login-agreement {
+  margin: 0;
+  text-align: center;
+  color: #44474e;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.test-account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.test-account-copy {
+  color: #667085;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.test-fill-btn {
+  border: 0;
+  border-radius: 999px;
+  background: #e7eefc;
+  color: #031634;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-banner-card {
+  margin-top: auto;
+
+  .banner-label {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+
+  .banner-title {
+    margin-top: 6px;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+}

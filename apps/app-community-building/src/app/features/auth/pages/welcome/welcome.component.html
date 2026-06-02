@@ -1,0 +1,42 @@
+<section class="welcome-page">
+  <div class="welcome-overlay">
+    <header class="welcome-header">
+      <p class="welcome-label">WELCOME TO</p>
+      <h1 class="welcome-title">Civic Premium</h1>
+      <div class="welcome-accent"></div>
+    </header>
+
+    <main class="welcome-modes">
+      <button type="button" class="mode-card mode-card-glass" (click)="goResident()">
+        <span class="mode-icon mode-icon-resident">
+          <mat-icon>home</mat-icon>
+        </span>
+        <span class="mode-copy">
+          <span class="mode-title">住戶模式</span>
+          <span class="mode-subtitle">Resident Mode</span>
+        </span>
+        <mat-icon class="mode-arrow">chevron_right</mat-icon>
+      </button>
+
+      <button type="button" class="mode-card mode-card-admin" (click)="goAdmin()">
+        <span class="mode-icon mode-icon-admin">
+          <mat-icon>shield</mat-icon>
+        </span>
+        <span class="mode-copy">
+          <span class="mode-title">管理員模式</span>
+          <span class="mode-subtitle">Admin Mode</span>
+        </span>
+        <mat-icon class="mode-arrow">chevron_right</mat-icon>
+      </button>
+    </main>
+
+    <footer class="welcome-footer">
+      <p class="welcome-tagline">Effortless Living. Secure Management.</p>
+      <div class="welcome-links">
+        @for (link of legalLinks; track link) {
+          <a href="javascript:void(0)">{{ link }}</a>
+        }
+      </div>
+    </footer>
+  </div>
+</section>
