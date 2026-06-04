@@ -1,0 +1,21 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--civic-background, #f7f8fa);
+}
+.main-header {
+  flex: 0 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 2%);
+  z-index: 10;
+}
+.main-content {
+  flex: 1 1 auto;
+  padding: 0 0 16px 0;
+}
+.main-footer {
+  flex: 0 0 auto;
+  background: #fff;
+  box-shadow: 0 -2px 8px 0 rgb(0 0 0 / 2%);
+}

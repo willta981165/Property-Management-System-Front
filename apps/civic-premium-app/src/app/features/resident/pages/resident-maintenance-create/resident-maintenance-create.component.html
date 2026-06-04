@@ -1,0 +1,45 @@
+<main class="civic-page resident-maintenance-create-page">
+  <header>
+    <h1 class="civic-title">建立報修申請</h1>
+    <p class="civic-subtitle">依照四個步驟填寫，送出後管理室會即時派工。</p>
+  </header>
+
+  <section class="civic-card civic-card-pad stepper-card">
+    <div class="stepper-row">
+      <span class="step active">1 類別</span>
+      <span class="step">2 詳情</span>
+      <span class="step">3 時段</span>
+      <span class="step">4 確認</span>
+    </div>
+  </section>
+
+  <section class="civic-card civic-card-pad">
+    <h2 class="civic-section-title">報修資訊</h2>
+    <div class="civic-list">
+      <label class="civic-field">
+        <span class="civic-label">報修類別</span>
+        <select class="civic-select">
+          <option>給排水</option>
+          <option>電力設備</option>
+          <option>空調</option>
+          <option>門禁與安全</option>
+        </select>
+      </label>
+
+      <label class="civic-field">
+        <span class="civic-label">問題描述</span>
+        <textarea class="civic-textarea" placeholder="請描述故障狀況、位置與是否緊急"></textarea>
+      </label>
+
+      <label class="civic-field">
+        <span class="civic-label">可配合時段</span>
+        <input class="civic-input" type="text" placeholder="例如：平日 19:00 後" />
+      </label>
+    </div>
+  </section>
+
+  <div class="action-row">
+    <button type="button" class="civic-btn civic-btn-soft">暫存草稿</button>
+    <button type="button" class="civic-btn civic-btn-primary">下一步</button>
+  </div>
+</main>

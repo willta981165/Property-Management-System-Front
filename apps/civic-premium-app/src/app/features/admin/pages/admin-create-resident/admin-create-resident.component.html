@@ -1,0 +1,54 @@
+<main class="civic-page admin-create-resident-page">
+  <header>
+    <h1 class="civic-title">建立住戶帳號</h1>
+    <p class="civic-subtitle">管理端手動開通住戶與家屬帳號。</p>
+  </header>
+
+  <form class="civic-list">
+    <section class="civic-card civic-card-pad civic-list">
+      <label class="civic-field">
+        <span class="civic-label">姓名</span>
+        <input class="civic-input" type="text" placeholder="請輸入住戶全名" />
+      </label>
+      <label class="civic-field">
+        <span class="civic-label">單位編號</span>
+        <input class="civic-input" type="text" placeholder="例如：A座 12F-A" />
+      </label>
+      <div class="inline-grid">
+        <label class="civic-field">
+          <span class="civic-label">聯絡電話</span>
+          <input class="civic-input" type="text" placeholder="09xx-xxx-xxx" />
+        </label>
+        <label class="civic-field">
+          <span class="civic-label">電子郵件（選填）</span>
+          <input class="civic-input" type="email" placeholder="name@mail.com" />
+        </label>
+      </div>
+    </section>
+
+    <section class="civic-card civic-card-pad civic-list">
+      <label class="civic-field">
+        <span class="civic-label">初始密碼</span>
+        <div class="pwd-row">
+          <input class="civic-input" type="text" value="RE-9x2K8n" />
+          <button type="button" class="civic-btn civic-btn-soft">隨機</button>
+        </div>
+      </label>
+
+      <label class="civic-field">
+        <span class="civic-label">帳號類型</span>
+        <div class="role-row">
+          <button type="button" class="role-btn active">住戶</button>
+          <button type="button" class="role-btn">家屬</button>
+        </div>
+      </label>
+
+      <label class="civic-field">
+        <span class="civic-label">備註</span>
+        <textarea class="civic-textarea" placeholder="輸入內部管理備註"></textarea>
+      </label>
+    </section>
+
+    <button type="submit" class="civic-btn civic-btn-primary">確認建立</button>
+  </form>
+</main>

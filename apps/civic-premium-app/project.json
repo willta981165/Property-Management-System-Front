@@ -1,0 +1,105 @@
+{
+  "name": "civic-premium-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/civic-premium-app/src",
+  "prefix": "Civic",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/civic-premium-app",
+        "index": "apps/civic-premium-app/src/index.html",
+        "main": "apps/civic-premium-app/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/civic-premium-app/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/civic-premium-app/src/assets",
+            "output": "assets"
+          }
+        ],
+        "styles": ["apps/civic-premium-app/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/ui-kits/src/styles"]
+        },
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "civic-premium-app:build:production"
+        },
+        "development": {
+          "buildTarget": "civic-premium-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "cap:sync": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build civic-premium-app", "npx cap sync"],
+        "parallel": false
+      }
+    },
+    "cap:add:android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap add android"
+      }
+    },
+    "cap:add:ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap add ios"
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build civic-premium-app", "npx cap sync"],
+        "parallel": false
+      }
+    },
+    "deploy:android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build civic-premium-app", "npx cap sync android", "npx cap open android"],
+        "parallel": false
+      }
+    },
+    "deploy:ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build civic-premium-app", "npx cap sync ios", "npx cap open ios"],
+        "parallel": false
+      }
+    }
+  }
+}

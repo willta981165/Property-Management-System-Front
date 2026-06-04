@@ -1,0 +1,44 @@
+<main class="civic-page admin-maintenance-page">
+  <header class="top-wrap">
+    <h1 class="civic-title">報修管理</h1>
+    <button class="civic-btn civic-btn-primary">新增工單</button>
+  </header>
+
+  <section class="civic-card civic-card-pad filter-card">
+    <input class="civic-input" type="text" placeholder="搜尋報修單號或房號" />
+    <div class="filter-row">
+      <span class="civic-chip civic-chip-warning">待處理</span>
+      <span class="civic-chip civic-chip-danger">進行中</span>
+      <span class="civic-chip civic-chip-success">已完成</span>
+    </div>
+  </section>
+
+  <section class="civic-list">
+    <article class="civic-card civic-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8821 ・ Unit 3B</p>
+        <span class="civic-chip civic-chip-warning">待處理</span>
+      </div>
+      <p class="title">廚房水龍頭漏水</p>
+      <p class="desc">住戶回報漏水加劇，請優先派工。</p>
+    </article>
+
+    <article class="civic-card civic-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8795 ・ Unit 12A</p>
+        <span class="civic-chip civic-chip-danger">進行中</span>
+      </div>
+      <p class="title">客廳燈具閃爍</p>
+      <p class="desc">王師傅已抵達現場，待更新修復結果。</p>
+    </article>
+
+    <article class="civic-card civic-card-pad ticket-item">
+      <div class="ticket-head">
+        <p class="no">TK-8742 ・ Unit 8F</p>
+        <span class="civic-chip civic-chip-success">已完成</span>
+      </div>
+      <p class="title">空調異味與濾網清洗</p>
+      <p class="desc">已完成並由住戶簽收。</p>
+    </article>
+  </section>
+</main>

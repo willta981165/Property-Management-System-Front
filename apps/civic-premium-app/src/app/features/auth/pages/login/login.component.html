@@ -1,0 +1,89 @@
+<section class="auth-page resident-login-page">
+	<header class="auth-topbar resident-topbar">
+		<button type="button" class="topbar-action" (click)="goBack()">
+			<mat-icon>arrow_back_ios_new</mat-icon>
+			<span>返回</span>
+		</button>
+
+		<span class="topbar-placeholder"></span>
+	</header>
+
+	<section class="hero-block">
+		<span class="auth-icon-tile">
+			<mat-icon>apartment</mat-icon>
+		</span>
+
+		<h1 class="auth-title">歡迎回來</h1>
+		<p class="auth-subtitle">請登入您的住戶帳號</p>
+	</section>
+
+	<form class="auth-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+		<label class="auth-field">
+			<span class="auth-label">單位編號或手機號碼</span>
+			<span class="auth-input-wrap">
+				<input class="auth-input" type="text" formControlName="account" placeholder="例如：A座 12F" autocomplete="username" />
+				<mat-icon class="field-trailing-icon">person_outline</mat-icon>
+			</span>
+			@if (submitted && form.controls.account.invalid) {
+				<p class="auth-error">請輸入單位編號或手機號碼</p>
+			}
+		</label>
+
+		<label class="auth-field">
+			<span class="auth-label">密碼</span>
+			<span class="auth-input-wrap">
+				<input
+					class="auth-input"
+					[type]="showPassword ? 'text' : 'password'"
+					formControlName="password"
+					placeholder="輸入您的密碼"
+					autocomplete="current-password"
+				/>
+				<button type="button" class="field-toggle-btn" (click)="togglePassword()" aria-label="切換密碼顯示">
+					<mat-icon class="field-trailing-icon">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+				</button>
+			</span>
+			@if (submitted && form.controls.password.invalid) {
+				<p class="auth-error">請輸入密碼</p>
+			}
+		</label>
+
+		<div class="auth-row">
+			<label class="remember-toggle">
+				<input type="checkbox" formControlName="rememberMe" />
+				<span class="toggle-track"><span class="toggle-thumb"></span></span>
+				<span>記住我</span>
+			</label>
+			<a href="javascript:void(0)" class="auth-link">忘記密碼</a>
+		</div>
+
+		@if (errorMsg) {
+			<p class="auth-error auth-inline-error">{{ errorMsg }}</p>
+		}
+
+		<civic-button type="submit" class="auth-primary-button" [loading]="loading">
+			登入
+			<mat-icon>login</mat-icon>
+		</civic-button>
+	</form>
+
+	<section class="resident-feature-grid" aria-hidden="true">
+		<article class="feature-card feature-card-light">
+			<h3>五星級服務</h3>
+			<mat-icon>support_agent</mat-icon>
+		</article>
+		<article class="feature-card feature-card-navy">
+			<h3>智能安防</h3>
+			<mat-icon>verified_user</mat-icon>
+		</article>
+	</section>
+
+	<section class="resident-footer">
+		<p class="register-hint">還沒有帳號嗎？</p>
+		<a href="javascript:void(0)" class="auth-link register-link">
+			聯絡管理處註冊
+			<mat-icon>arrow_forward</mat-icon>
+		</a>
+		<p class="copyright">© 2024 Resident Portal Pro</p>
+	</section>
+</section>

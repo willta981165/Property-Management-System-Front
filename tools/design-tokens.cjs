@@ -1,6 +1,6 @@
 module.exports = {
   colors: {
-    stitch: {
+    Civic: {
       primary: '#031634',
       'primary-container': '#1a2b4a',
       secondary: '#835500',
@@ -14,12 +14,12 @@ module.exports = {
     }
   },
   borderRadius: {
-    'stitch-md': '12px',
-    'stitch-lg': '16px',
-    'stitch-xl': '24px'
+    'civic-md': '12px',
+    'civic-lg': '16px',
+    'civic-xl': '24px'
   },
   boxShadow: {
-    'stitch-1': '0 4px 12px rgb(0 0 0 / 5%)',
-    'stitch-2': '0 8px 24px rgb(0 0 0 / 12%)'
+    'civic-1': '0 4px 12px rgb(0 0 0 / 5%)',
+    'civic-2': '0 8px 24px rgb(0 0 0 / 12%)'
   }
 };
