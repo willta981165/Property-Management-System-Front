@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "nx serve app-community-building",
-    "build": "nx build app-community-building",
-    "cap:add:android": "nx run app-community-building:cap:add:android",
-    "cap:add:ios": "nx run app-community-building:cap:add:ios",
-    "build:android": "nx run app-community-building:deploy:android",
-    "build:ios": "nx run app-community-building:deploy:ios",
-    "cap:sync": "nx run app-community-building:cap:sync"
+    "start": "nx serve civic-premium-app",
+    "build": "nx build civic-premium-app",
+    "cap:add:android": "nx run civic-premium-app:cap:add:android",
+    "cap:add:ios": "nx run civic-premium-app:cap:add:ios",
+    "build:android": "nx run civic-premium-app:deploy:android",
+    "build:ios": "nx run civic-premium-app:deploy:ios",
+    "cap:sync": "nx run civic-premium-app:cap:sync"
   },
   "dependencies": {
     "@angular/animations": "^20.0.0",

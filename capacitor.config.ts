@@ -3,7 +3,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.stitch.communitybuilding',
   appName: 'Community Building',
-  webDir: 'dist/apps/app-community-building',
+  webDir: 'dist/apps/civic-premium-app',
   bundledWebRuntime: false,
   server: {
     androidScheme: 'https'

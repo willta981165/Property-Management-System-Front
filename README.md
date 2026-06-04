@@ -21,7 +21,7 @@
 
 ```txt
 apps/
-└── app-community-building/         # 主應用
+└── civic-premium-app/         # 主應用
     └── src/app/
         ├── core/                   # Guards、MockAuthService
         ├── layout/                 # auth / main(resident) / admin layout

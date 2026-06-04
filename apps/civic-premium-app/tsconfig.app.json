@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/app-community-building",
+    "outDir": "../../dist/out-tsc/apps/civic-premium-app",
     "types": []
   },
   "files": ["src/main.ts"],
