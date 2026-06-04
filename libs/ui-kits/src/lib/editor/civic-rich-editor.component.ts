@@ -7,11 +7,11 @@ import StarterKit from '@tiptap/starter-kit';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
 @Component({
-  selector: 'stitch-rich-editor',
+  selector: 'civic-rich-editor',
   standalone: true,
   imports: [CommonModule, MatIconModule, TiptapEditorDirective],
   template: `
-    <div class="stitch-rich-editor">
+    <div class="civic-rich-editor">
       <div class="toolbar" role="toolbar" aria-label="文字格式工具列">
         <button type="button" (click)="toggleBold()" [attr.aria-pressed]="isBoldActive()" aria-label="粗體字">
           <mat-icon>format_bold</mat-icon>
@@ -35,7 +35,7 @@ import { TiptapEditorDirective } from 'ngx-tiptap';
   `,
   styles: [
     `
-      .stitch-rich-editor {
+      .civic-rich-editor {
         border-radius: 16px;
         border: 1px solid #d5d8e0;
         background: #fff;
@@ -122,7 +122,7 @@ import { TiptapEditorDirective } from 'ngx-tiptap';
     `
   ]
 })
-export class StitchRichEditorComponent implements OnChanges, OnDestroy {
+export class CivicRichEditorComponent implements OnChanges, OnDestroy {
   @Input() content = '';
   @Input() placeholder = '請輸入內容...';
   @Input() ariaLabel = '富文本編輯器';

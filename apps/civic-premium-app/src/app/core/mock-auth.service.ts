@@ -15,7 +15,7 @@ export interface MockUser {
   avatar?: string;
 }
 
-const STORAGE_KEY = 'stitch_mock_user';
+const STORAGE_KEY = 'Civic_mock_user';
 
 /** mock 帳號表（前端假登入） */
 const MOCK_ACCOUNTS: Array<{ account: string; password: string; user: MockUser }> = [
@@ -28,7 +28,7 @@ const MOCK_ACCOUNTS: Array<{ account: string; password: string; user: MockUser }
       name: '陳大文',
       role: 'admin',
       phone: '0912-345-678',
-      email: 'admin@stitch.com',
+      email: 'admin@civic.com',
       avatar: 'https://i.pravatar.cc/100?img=68'
     }
   },
@@ -42,7 +42,7 @@ const MOCK_ACCOUNTS: Array<{ account: string; password: string; user: MockUser }
       role: 'resident',
       unit: '12F-A',
       phone: '0922-111-222',
-      email: 'resident@stitch.com',
+      email: 'resident@civic.com',
       avatar: 'https://i.pravatar.cc/100?img=12'
     }
   }

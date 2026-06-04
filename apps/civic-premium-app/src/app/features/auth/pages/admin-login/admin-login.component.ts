@@ -3,13 +3,13 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
-import { StitchButtonComponent } from '@stitch/ui-kits';
+import { CivicButtonComponent } from '@civic/ui-kits';
 import { MockAuthService } from '../../../../core/mock-auth.service';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, StitchButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, CivicButtonComponent],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.scss']
 })

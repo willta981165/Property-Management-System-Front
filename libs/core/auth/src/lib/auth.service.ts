@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SystemConfigService } from '@stitch/shared/config';
-import { TokenStorageService, isTokenExpired } from '@stitch/utils/auth';
+import { SystemConfigService } from '@civic/shared/config';
+import { TokenStorageService, isTokenExpired } from '@civic/utils/auth';
 import { Observable, catchError, from, map, switchMap, throwError } from 'rxjs';
 
 import { ApiErrorResponse, LoginRequest, LoginResponse } from './auth-api.model';

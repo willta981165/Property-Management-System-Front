@@ -1,4 +1,4 @@
-package com.stitch.communitybuilding;
+package com.Civic.civicpremium;
 
 import com.getcapacitor.BridgeActivity;
 

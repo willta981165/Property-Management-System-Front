@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-export interface StitchTabOption {
+export interface CivicTabOption {
   value: string;
   label: string;
 }
 
 @Component({
-  selector: 'stitch-tab-select',
+  selector: 'civic-tab-select',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="stitch-tab-select" role="tablist" [attr.aria-label]="ariaLabel">
+    <div class="civic-tab-select" role="tablist" [attr.aria-label]="ariaLabel">
       <button
         *ngFor="let option of options"
         type="button"
@@ -26,7 +26,7 @@ export interface StitchTabOption {
   `,
   styles: [
     `
-      .stitch-tab-select {
+      .civic-tab-select {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.25rem;
@@ -56,8 +56,8 @@ export interface StitchTabOption {
     `
   ]
 })
-export class StitchTabSelectComponent {
-  @Input({ required: true }) options: StitchTabOption[] = [];
+export class CivicTabSelectComponent {
+  @Input({ required: true }) options: CivicTabOption[] = [];
   @Input() value = '';
   @Input() ariaLabel = 'tab select';
   @Output() readonly valueChange = new EventEmitter<string>();

@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { StitchButtonComponent } from '@stitch/ui-kits';
+import { CivicButtonComponent } from '@civic/ui-kits';
 
 import { MockAuthService } from '../../../../core/mock-auth.service';
 
@@ -13,7 +13,7 @@ import { MockAuthService } from '../../../../core/mock-auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, StitchButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, CivicButtonComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

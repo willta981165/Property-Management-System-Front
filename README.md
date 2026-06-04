@@ -65,7 +65,7 @@ libs/
 
 ```bash
 git clone <repo-url>
-cd stitch_resident_community_management_system
+cd Civic_resident_community_management_system
 npm install
 ```
 

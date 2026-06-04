@@ -1,11 +1,11 @@
-@use 'material-theme' as stitch-theme;
+@use 'material-theme' as civic-theme;
 @use 'patterns';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@include stitch-theme.theme();
+@include civic-theme.theme();
 
 * {
   box-sizing: border-box;
@@ -21,13 +21,13 @@ body {
 
 body {
   min-height: 100dvh;
-  background: var(--stitch-background);
-  color: var(--stitch-text);
+  background: var(--civic-background);
+  color: var(--civic-text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 
-stitch-root {
+civic-root {
   display: block;
   width: 100%;
   min-height: 100dvh;

@@ -3,11 +3,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'stitch-image-upload-single',
+  selector: 'civic-image-upload-single',
   standalone: true,
   imports: [CommonModule, MatIconModule],
   template: `
-    <div class="stitch-image-upload-single">
+    <div class="civic-image-upload-single">
       <input
         #fileInput
         type="file"
@@ -40,7 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styles: [
     `
-      .stitch-image-upload-single {
+      .civic-image-upload-single {
         display: flex;
       }
 
@@ -103,7 +103,7 @@ import { MatIconModule } from '@angular/material/icon';
     `
   ]
 })
-export class StitchImageUploadSingleComponent {
+export class CivicImageUploadSingleComponent {
   @Input() imageBase64: string | null = null;
   @Input() ariaLabel = '上傳圖片';
   @Input() addButtonLabel = '添加圖片';

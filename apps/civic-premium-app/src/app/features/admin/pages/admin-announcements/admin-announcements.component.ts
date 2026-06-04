@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
-  StitchImageUploadSingleComponent,
-  StitchRichEditorComponent,
-  StitchTabOption,
-  StitchTabSelectComponent
-} from '@stitch/ui-kits';
+  CivicImageUploadSingleComponent,
+  CivicRichEditorComponent,
+  CivicTabOption,
+  CivicTabSelectComponent
+} from '@civic/ui-kits';
 
 /**
  * 功能頁面：管理員公告管理頁
@@ -17,9 +17,9 @@ import {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    StitchTabSelectComponent,
-    StitchRichEditorComponent,
-    StitchImageUploadSingleComponent
+    CivicTabSelectComponent,
+    CivicRichEditorComponent,
+    CivicImageUploadSingleComponent
   ],
   templateUrl: './admin-announcements.component.html',
   styleUrls: ['./admin-announcements.component.scss']
@@ -33,7 +33,7 @@ export class AdminAnnouncementsComponent {
     scheduleEnabled: [false]
   });
 
-  readonly categoryOptions: StitchTabOption[] = [
+  readonly categoryOptions: CivicTabOption[] = [
     { value: 'important', label: '重要' },
     { value: 'urgent', label: '緊急' },
     { value: 'event', label: '活動' }

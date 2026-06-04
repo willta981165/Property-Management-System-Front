@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'stitch-button',
+  selector: 'civic-button',
   standalone: true,
   imports: [
     CommonModule,
@@ -12,7 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   template: `
-    <button mat-flat-button color="primary" class="stitch-button" [disabled]="disabled || loading" [type]="type">
+    <button mat-flat-button color="primary" class="civic-button" [disabled]="disabled || loading" [type]="type">
       <mat-progress-spinner *ngIf="loading; else content" diameter="18" mode="indeterminate"></mat-progress-spinner>
       <ng-template #content>
         <ng-content></ng-content>
@@ -25,7 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         display: block;
       }
 
-      .stitch-button {
+      .civic-button {
         width: 100%;
       }
 
@@ -36,7 +36,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StitchButtonComponent {
+export class CivicButtonComponent {
   @Input() disabled = false;
   @Input() loading = false;
   @Input() type: 'button' | 'submit' = 'button';

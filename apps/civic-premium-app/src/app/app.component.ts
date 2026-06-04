@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'stitch-root',
+  selector: 'civic-root',
   standalone: true,
   imports: [RouterModule],
   template: '<router-outlet></router-outlet>'

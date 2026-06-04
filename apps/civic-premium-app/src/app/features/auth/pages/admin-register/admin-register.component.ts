@@ -3,12 +3,12 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
-import { StitchButtonComponent } from '@stitch/ui-kits';
+import { CivicButtonComponent } from '@civic/ui-kits';
 
 @Component({
   selector: 'app-admin-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, StitchButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, CivicButtonComponent],
   templateUrl: './admin-register.component.html',
   styleUrls: ['./admin-register.component.scss']
 })

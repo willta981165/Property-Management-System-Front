@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.stitch.communitybuilding"
+    namespace "com.Civic.civicpremium"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.stitch.communitybuilding"
+        applicationId "com.Civic.civicpremium"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
