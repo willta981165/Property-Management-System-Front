@@ -23,7 +23,9 @@
   <form class="auth-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
     <label class="auth-field">
       <span class="auth-label">姓名</span>
-      <input class="auth-control" type="text" formControlName="name" placeholder="請輸入真實姓名" autocomplete="name" />
+      <span class="auth-input-wrap">
+        <input class="auth-input" type="text" formControlName="name" placeholder="請輸入真實姓名" autocomplete="name" />
+      </span>
       @if (submitted && form.controls.name.invalid) {
         <p class="auth-error">請輸入姓名</p>
       }
@@ -32,7 +34,9 @@
     <div class="field-grid">
       <label class="auth-field">
         <span class="auth-label">員工編號</span>
-        <input class="auth-control" type="text" formControlName="employeeId" placeholder="ID-0000" />
+        <span class="auth-input-wrap">
+          <input class="auth-input" type="text" formControlName="employeeId" placeholder="ID-0000" />
+        </span>
         @if (submitted && form.controls.employeeId.invalid) {
           <p class="auth-error">請輸入員工編號</p>
         }
@@ -53,7 +57,9 @@
 
     <label class="auth-field">
       <span class="auth-label">工作信箱</span>
-      <input class="auth-control" type="email" formControlName="email" placeholder="example@civic-staff.com" autocomplete="email" />
+      <span class="auth-input-wrap">
+        <input class="auth-input" type="email" formControlName="email" placeholder="example@civic-staff.com" autocomplete="email" />
+      </span>
       @if (submitted && form.controls.email.errors?.['required']) {
         <p class="auth-error">請輸入工作信箱</p>
       }
