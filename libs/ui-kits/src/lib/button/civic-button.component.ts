@@ -15,7 +15,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     <button mat-flat-button color="primary" class="civic-button" [disabled]="disabled || loading" [type]="type">
       <mat-progress-spinner *ngIf="loading; else content" diameter="18" mode="indeterminate"></mat-progress-spinner>
       <ng-template #content>
-        <ng-content></ng-content>
+        <span class="content-slot">
+          <ng-content></ng-content>
+        </span>
       </ng-template>
     </button>
   `,
@@ -27,6 +29,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
       .civic-button {
         width: 100%;
+      }
+
+      .content-slot {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
       }
 
       mat-progress-spinner {
