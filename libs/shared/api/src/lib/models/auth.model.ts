@@ -3,11 +3,13 @@ export interface LoginRequest {
   password: string;
 }
 
+export type UserRole = "resident" | "staff" | "admin";
+
 export interface LoginUser {
   id: string;
   account?: string;
   name: string;
-  role: "resident" | "staff" | "admin" | string;
+  role: UserRole;
   unit?: string;
   phone?: string;
   email?: string;

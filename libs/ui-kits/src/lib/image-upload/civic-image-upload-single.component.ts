@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'] as const;
+
 @Component({
   selector: 'civic-image-upload-single',
   standalone: true,
@@ -114,10 +117,16 @@ export class CivicImageUploadSingleComponent {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
 
-    if (!file || !file.type.startsWith('image/')) {
+    if (
+      !file ||
+      !ALLOWED_TYPES.includes(file.type as (typeof ALLOWED_TYPES)[number]) ||
+      file.size > MAX_FILE_SIZE
+    ) {
+      input.value = '';
       return;
     }
 
+    // 前端限制僅用於 UX 與記憶體保護，檔案安全仍需由後端驗證。
     const reader = new FileReader();
     reader.onload = () => {
       this.imageBase64 = typeof reader.result === 'string' ? reader.result : null;

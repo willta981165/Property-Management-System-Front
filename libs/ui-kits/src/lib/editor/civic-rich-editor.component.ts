@@ -6,6 +6,24 @@ import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
 import { TiptapEditorDirective } from 'ngx-tiptap';
 
+const ALLOWED_PROTOCOLS = ['http:', 'https:', 'mailto:', 'tel:'];
+
+// TODO(PROD):
+// 若未來導入 Deep Link 或 OAuth Callback，需調整 allowlist。
+function normalizeSafeUrl(value: string): string | null {
+  try {
+    const url = new URL(value, window.location.origin);
+
+    if (!ALLOWED_PROTOCOLS.includes(url.protocol)) {
+      return null;
+    }
+
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 @Component({
   selector: 'civic-rich-editor',
   standalone: true,
@@ -183,13 +201,17 @@ export class CivicRichEditorComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    const trimmedUrl = url.trim();
-    if (!trimmedUrl) {
+    if (!url.trim()) {
       this.editor.chain().focus().unsetLink().run();
       return;
     }
 
-    this.editor.chain().focus().extendMarkRange('link').setLink({ href: trimmedUrl }).run();
+    const safeUrl = normalizeSafeUrl(url.trim());
+    if (!safeUrl) {
+      return;
+    }
+
+    this.editor.chain().focus().extendMarkRange('link').setLink({ href: safeUrl }).run();
   }
 
   isBoldActive(): boolean {

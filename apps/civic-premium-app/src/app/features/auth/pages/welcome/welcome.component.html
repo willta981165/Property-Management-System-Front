@@ -34,6 +34,7 @@
       <p class="welcome-tagline">Effortless Living. Secure Management.</p>
       <div class="welcome-links">
         @for (link of legalLinks; track link) {
+          <!-- TODO(PROD): CSP 上線前統一處理 javascript:void(0)，目前保留既有 UI/E2E 行為。 -->
           <a href="javascript:void(0)">{{ link }}</a>
         }
       </div>

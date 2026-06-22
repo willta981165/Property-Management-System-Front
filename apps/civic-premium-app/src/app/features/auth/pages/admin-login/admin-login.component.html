@@ -64,15 +64,9 @@
         <span class="toggle-track"><span class="toggle-thumb"></span></span>
         <span>記住我</span>
       </label>
+      <!-- TODO(PROD): CSP 上線前統一處理 javascript:void(0)，目前保留既有 UI/E2E 行為。 -->
       <a href="javascript:void(0)" class="auth-link">忘記密碼？</a>
     </div>
-
-    @if (testAccount) {
-      <div class="test-account-row">
-        <span class="test-account-copy">測試帳號：{{ testAccount.account }} / {{ testAccount.password }}</span>
-        <button type="button" class="test-fill-btn" (click)="fillTestAccount()">一鍵帶入</button>
-      </div>
-    }
 
     @if (errorMsg) {
       <p class="auth-error auth-inline-error">{{ errorMsg }}</p>
