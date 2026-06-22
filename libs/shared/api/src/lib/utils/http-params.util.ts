@@ -8,6 +8,9 @@ export type HttpQueryValue =
   | null
   | undefined;
 
+/**
+ * 將 typed query object 轉換為 HttpParams。
+ */
 export function buildHttpParams<TQuery extends object>(
   query?: TQuery
 ): HttpParams {
