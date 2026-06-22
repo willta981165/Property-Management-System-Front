@@ -1,6 +1,7 @@
 import { inject } from "@angular/core";
 import { CanActivateFn, Router } from "@angular/router";
-import { AuthService, LoginUser } from "@civic/core/auth";
+import { AuthService } from "@civic/core/auth";
+import { LoginUser } from "@civic/shared/api";
 import { map } from "rxjs";
 
 type UserRole = LoginUser["role"];

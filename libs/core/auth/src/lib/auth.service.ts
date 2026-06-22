@@ -1,20 +1,13 @@
 import { Injectable, signal } from "@angular/core";
-import { ApiError } from "@civic/shared/api";
-import { TokenStorageService, isTokenExpired } from "@civic/utils/auth";
 import {
-  Observable,
-  catchError,
-  forkJoin,
-  from,
-  map,
-  of,
-  switchMap,
-  tap,
-  throwError,
-} from "rxjs";
+  AuthApi,
+  LoginRequest,
+  LoginResponse,
+  LoginUser,
+} from "@civic/shared/api";
+import { TokenStorageService, isTokenExpired } from "@civic/utils/auth";
+import { Observable, forkJoin, from, map, of, switchMap, tap } from "rxjs";
 
-import { LoginRequest, LoginResponse, LoginUser } from "./auth-api.model";
-import { AuthApi } from "./auth.api";
 import { AuthSessionStorageService } from "./auth-session-storage.service";
 
 @Injectable({
@@ -41,25 +34,7 @@ export class AuthService {
           from(this.sessionStorage.setUser(response.user)),
         ]).pipe(map(() => response))
       ),
-      tap((response) => this.userState.set(response.user)),
-      catchError((error: unknown) => {
-        if (
-          error instanceof ApiError &&
-          (error.status === 401 || error.status === 403)
-        ) {
-          return throwError(
-            () =>
-              new ApiError(
-                error.status,
-                "INVALID_CREDENTIALS",
-                "帳號或密碼錯誤",
-                error.details
-              )
-          );
-        }
-
-        return throwError(() => error);
-      })
+      tap((response) => this.userState.set(response.user))
     );
   }
 

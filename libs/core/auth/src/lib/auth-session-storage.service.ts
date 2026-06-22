@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Preferences } from "@capacitor/preferences";
-
-import { LoginUser } from "./auth-api.model";
+import { LoginUser } from "@civic/shared/api";
 
 const AUTH_USER_KEY = "auth.user";
 
