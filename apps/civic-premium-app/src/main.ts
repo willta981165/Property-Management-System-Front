@@ -2,9 +2,11 @@ import { bootstrapApplication } from "@angular/platform-browser";
 import { provideRouter, withComponentInputBinding } from "@angular/router";
 import { provideHttpClient, withInterceptors } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
-import { authInterceptor } from "@civic/core/auth";
-import { apiErrorInterceptor } from "@civic/shared/api";
-import { API_BASE_URL } from "@civic/shared/config";
+import {
+  API_BASE_URL,
+  apiErrorInterceptor,
+  authInterceptor,
+} from "@civic/shared/api";
 
 import { AppComponent } from "./app/app.component";
 import { routes } from "./app/app.routes";
