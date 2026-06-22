@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@civic/core/auth": ["libs/core/auth/src/index.ts"],
+      "@civic/shared/api": ["libs/shared/api/src/index.ts"],
       "@civic/shared/config": ["libs/shared/config/src/index.ts"],
       "@civic/ui-kits": ["libs/ui-kits/src/index.ts"],
       "@civic/utils/auth": ["libs/utils/auth/src/index.ts"]
