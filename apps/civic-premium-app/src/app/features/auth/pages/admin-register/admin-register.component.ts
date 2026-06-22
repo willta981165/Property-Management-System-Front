@@ -57,7 +57,7 @@ export class AdminRegisterComponent {
       return;
     }
 
-    console.log('admin-register', this.form.getRawValue());
+    // TODO(API): 串接管理員註冊 API；禁止輸出密碼或完整表單內容。
   }
 
   private passwordMatchValidator(control: AbstractControl): ValidationErrors | null {

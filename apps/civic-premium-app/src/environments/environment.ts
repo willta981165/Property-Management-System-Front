@@ -1,4 +1,10 @@
-export const environment = {
+import { AppEnvironment } from "./environment.model";
+
+export const environment: AppEnvironment = {
   production: false,
   apiBaseUrl: "",
-} as const;
+  testAccount: {
+    account: "admin",
+    password: "adm123",
+  },
+};

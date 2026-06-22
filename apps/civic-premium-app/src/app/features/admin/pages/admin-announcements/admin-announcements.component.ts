@@ -56,20 +56,10 @@ export class AdminAnnouncementsComponent {
   }
 
   publish(): void {
-    console.log('publish announcement', {
-      ...this.form.getRawValue(),
-      category: this.selectedCategory,
-      content: this.editorHtml,
-      imageBase64: this.uploadedImageBase64
-    });
+    // TODO(API): 串接公告發布 API；禁止輸出完整表單或圖片內容。
   }
 
   saveDraft(): void {
-    console.log('save draft', {
-      ...this.form.getRawValue(),
-      category: this.selectedCategory,
-      content: this.editorHtml,
-      imageBase64: this.uploadedImageBase64
-    });
+    // TODO(API): 串接公告草稿 API；禁止輸出完整表單或圖片內容。
   }
 }

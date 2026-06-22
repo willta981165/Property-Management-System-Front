@@ -9,7 +9,7 @@
       <span>註冊帳號</span>
       <mat-icon>person_add</mat-icon>
     </button>
-    
+
     <!-- TODO: 邀請員工功能不一定要 -->
     <!-- <button type="button" class="topbar-action" (click)="goInviteStaff()">
       <span>邀請員工</span>
@@ -67,10 +67,12 @@
       <a href="javascript:void(0)" class="auth-link">忘記密碼？</a>
     </div>
 
-    <div class="test-account-row">
-      <span class="test-account-copy">測試帳號：admin / adm123</span>
-      <button type="button" class="test-fill-btn" (click)="fillTestAccount()">一鍵帶入</button>
-    </div>
+    @if (testAccount) {
+      <div class="test-account-row">
+        <span class="test-account-copy">測試帳號：{{ testAccount.account }} / {{ testAccount.password }}</span>
+        <button type="button" class="test-fill-btn" (click)="fillTestAccount()">一鍵帶入</button>
+      </div>
+    }
 
     @if (errorMsg) {
       <p class="auth-error auth-inline-error">{{ errorMsg }}</p>

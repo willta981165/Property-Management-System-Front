@@ -7,6 +7,8 @@ import { AuthService } from "@civic/core/auth";
 import { ApiError } from "@civic/shared/api";
 import { CivicButtonComponent } from "@civic/ui-kits";
 
+import { environment } from "../../../../../environments/environment";
+
 @Component({
   selector: "app-admin-login",
   standalone: true,
@@ -24,6 +26,12 @@ export class AdminLoginComponent {
   private readonly fb = inject(FormBuilder);
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
+
+  /**
+   * TODO(SECURITY): 正式環境不可提供或打包測試帳密。
+   * Production environment 必須維持 testAccount 為 undefined。
+   */
+  readonly testAccount = environment.testAccount;
 
   readonly form = this.fb.group({
     employeeId: ["", Validators.required],
@@ -53,9 +61,13 @@ export class AdminLoginComponent {
   }
 
   fillTestAccount(): void {
+    if (!this.testAccount) {
+      return;
+    }
+
     this.form.patchValue({
-      employeeId: "admin",
-      password: "adm123",
+      employeeId: this.testAccount.account,
+      password: this.testAccount.password,
       rememberMe: true,
     });
     this.errorMsg = null;
