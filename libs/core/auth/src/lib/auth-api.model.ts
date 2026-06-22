@@ -5,17 +5,17 @@ export interface LoginRequest {
 
 export interface LoginUser {
   id: string;
+  account?: string;
   name: string;
-  role: 'resident' | 'staff' | 'admin' | string;
+  role: "resident" | "staff" | "admin" | string;
+  unit?: string;
+  phone?: string;
+  email?: string;
+  avatar?: string;
 }
 
 export interface LoginResponse {
   token: string;
   expiresIn: number;
   user: LoginUser;
-}
-
-export interface ApiErrorResponse {
-  code: string;
-  message: string;
 }
