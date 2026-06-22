@@ -4,6 +4,7 @@ import { LoginUser } from "@civic/shared/api";
 
 const AUTH_USER_KEY = "auth.user";
 
+// TODO(SECURITY): 正式版若需保存敏感使用者資料，應改用 secure storage 並縮減欄位。
 /**
  * 管理已登入使用者的本機持久化資料。
  *

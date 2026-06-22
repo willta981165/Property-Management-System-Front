@@ -3,6 +3,7 @@ import { Preferences } from '@capacitor/preferences';
 
 const AUTH_TOKEN_KEY = 'auth.token';
 
+// TODO(SECURITY): 正式版需改用 iOS Keychain / Android Keystore 等 secure storage。
 @Injectable({
   providedIn: 'root'
 })
