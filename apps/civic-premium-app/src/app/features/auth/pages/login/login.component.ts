@@ -1,31 +1,37 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { CivicButtonComponent } from '@civic/ui-kits';
-
-import { MockAuthService } from '../../../../core/mock-auth.service';
+import { CommonModule } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Router, RouterModule } from "@angular/router";
+import { MatIconModule } from "@angular/material/icon";
+import { AuthService } from "@civic/core/auth";
+import { ApiError } from "@civic/shared/api";
+import { CivicButtonComponent } from "@civic/ui-kits";
 
 /**
- * 功能頁面：登入頁（mock 登入，不打 API）
+ * 功能頁面：住戶登入頁。
  */
 @Component({
-  selector: 'app-login',
+  selector: "app-login",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, MatIconModule, CivicButtonComponent],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatIconModule,
+    CivicButtonComponent,
+  ],
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
   private readonly fb = inject(FormBuilder);
-  private readonly auth = inject(MockAuthService);
+  private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
 
   readonly form = this.fb.group({
-    account: ['', Validators.required],
-    password: ['', Validators.required],
-    rememberMe: [false]
+    account: ["", Validators.required],
+    password: ["", Validators.required],
+    rememberMe: [false],
   });
 
   submitted = false;
@@ -34,14 +40,14 @@ export class LoginComponent {
   loading = false;
 
   goBack(): void {
-    this.router.navigateByUrl('/auth/welcome');
+    this.router.navigateByUrl("/auth/welcome");
   }
 
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
 
-  /** mock 登入 */
+  /** 呼叫登入 API，成功後依回傳角色導向對應首頁。 */
   submit(): void {
     this.submitted = true;
     this.errorMsg = null;
@@ -52,18 +58,25 @@ export class LoginComponent {
 
     const { account, password } = this.form.getRawValue();
     this.loading = true;
-    const user = this.auth.login(account ?? '', password ?? '');
-    this.loading = false;
-
-    if (!user) {
-      this.errorMsg = '帳號或密碼錯誤';
-      return;
-    }
-
-    if (user.role === 'admin') {
-      this.router.navigateByUrl('/admin/dashboard');
-    } else {
-      this.router.navigateByUrl('/home');
-    }
+    this.auth
+      .login({
+        account: account ?? "",
+        password: password ?? "",
+      })
+      .subscribe({
+        next: ({ user }) => {
+          this.loading = false;
+          this.router.navigateByUrl(
+            user.role === "admin" ? "/admin/dashboard" : "/home"
+          );
+        },
+        error: (error: unknown) => {
+          this.loading = false;
+          this.errorMsg =
+            error instanceof ApiError
+              ? error.message
+              : "系統忙碌中，請稍後再試";
+        },
+      });
   }
 }

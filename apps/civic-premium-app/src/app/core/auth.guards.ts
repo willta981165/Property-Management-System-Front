@@ -1,16 +1,20 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
+import { inject } from "@angular/core";
+import { CanActivateFn, Router } from "@angular/router";
+import { AuthService, LoginUser } from "@civic/core/auth";
+import { map } from "rxjs";
 
-import { MockAuthService, UserRole } from './mock-auth.service';
+type UserRole = LoginUser["role"];
 
 /**
  * 必須已登入；未登入則導向 /login。
  */
 export const authGuard: CanActivateFn = () => {
-  const auth = inject(MockAuthService);
+  const auth = inject(AuthService);
   const router = inject(Router);
-  if (auth.isLoggedIn()) return true;
-  return router.createUrlTree(['/login']);
+
+  return auth
+    .restoreSession()
+    .pipe(map((user) => !!user || router.createUrlTree(["/login"])));
 };
 
 /**
@@ -18,17 +22,24 @@ export const authGuard: CanActivateFn = () => {
  * 角色不符：admin 嘗試進入 resident 區 → 導向 /admin/dashboard；
  * 反之導向 /home；未登入則導向 /login。
  */
-export const roleGuard: (allowed: UserRole[]) => CanActivateFn = (allowed) => () => {
-  const auth = inject(MockAuthService);
-  const router = inject(Router);
-  const role = auth.role();
+export const roleGuard: (allowed: UserRole[]) => CanActivateFn =
+  (allowed) => () => {
+    const auth = inject(AuthService);
+    const router = inject(Router);
 
-  if (!role) {
-    return router.createUrlTree(['/login']);
-  }
-  if (allowed.includes(role)) return true;
+    return auth.restoreSession().pipe(
+      map((user) => {
+        if (!user) {
+          return router.createUrlTree(["/login"]);
+        }
 
-  return role === 'admin'
-    ? router.createUrlTree(['/admin/dashboard'])
-    : router.createUrlTree(['/home']);
-};
+        if (allowed.includes(user.role)) {
+          return true;
+        }
+
+        return user.role === "admin"
+          ? router.createUrlTree(["/admin/dashboard"])
+          : router.createUrlTree(["/home"]);
+      })
+    );
+  };
