@@ -4,6 +4,10 @@ export interface ApiErrorResponse {
   details?: unknown;
 }
 
+export interface ApiMessageResponse {
+  message?: string;
+}
+
 export class ApiError extends Error {
   constructor(
     readonly status: number,

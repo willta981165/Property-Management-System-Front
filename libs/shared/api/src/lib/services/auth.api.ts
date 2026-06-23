@@ -1,8 +1,17 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
-import { LoginRequest, LoginResponse } from "../models/auth.model";
+import {
+  AdminRegisterRequest,
+  AdminRegisterResponse,
+  ChangePasswordRequest,
+  CurrentUserResponse,
+  LoginRequest,
+  LoginResponse,
+  RefreshTokenResponse,
+} from "../models/auth.model";
+import { ApiMessageResponse } from "../models/common.model";
 import { API_BASE_URL } from "../tokens/api-base-url.token";
 
 /**
@@ -18,10 +27,43 @@ export class AuthApi {
   private readonly baseUrl = inject(API_BASE_URL);
 
   login(payload: LoginRequest): Observable<LoginResponse> {
-    // TODO(API): 取得可下載的 Swagger JSON 後，核對 login path 與 LoginResponse schema。
     return this.http.post<LoginResponse>(
       `${this.baseUrl}/api/auth/login`,
       payload
+    );
+  }
+
+  registerAdmin(
+    payload: AdminRegisterRequest
+  ): Observable<AdminRegisterResponse> {
+    return this.http.post<AdminRegisterResponse>(
+      `${this.baseUrl}/api/auth/admin/register`,
+      payload
+    );
+  }
+
+  changePassword(
+    payload: ChangePasswordRequest
+  ): Observable<ApiMessageResponse> {
+    return this.http.put<ApiMessageResponse>(
+      `${this.baseUrl}/api/auth/change-password`,
+      payload
+    );
+  }
+
+  getCurrentUser(): Observable<CurrentUserResponse> {
+    return this.http.get<CurrentUserResponse>(`${this.baseUrl}/api/auth/me`);
+  }
+
+  refresh(refreshToken: string): Observable<RefreshTokenResponse> {
+    return this.http.post<RefreshTokenResponse>(
+      `${this.baseUrl}/api/auth/refresh`,
+      null,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${refreshToken}`,
+        }),
+      }
     );
   }
 }

@@ -5,7 +5,12 @@ import { from, switchMap } from "rxjs";
 
 import { API_BASE_URL } from "../tokens/api-base-url.token";
 
-const PUBLIC_AUTH_PATHS = ["/api/auth/login", "/api/auth/refresh"];
+const PUBLIC_API_PATHS = [
+  "/api/auth/login",
+  "/api/auth/admin/register",
+  "/api/auth/refresh",
+  "/health",
+];
 
 /**
  * 對 API request 自動附加 JWT。
@@ -18,7 +23,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   if (
     !baseUrl ||
     !request.url.startsWith(`${baseUrl}/`) ||
-    isPublicAuthRequest(request.url, baseUrl)
+    isPublicApiRequest(request.url, baseUrl)
   ) {
     return next(request);
   }
@@ -40,7 +45,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   );
 };
 
-function isPublicAuthRequest(url: string, baseUrl: string): boolean {
+function isPublicApiRequest(url: string, baseUrl: string): boolean {
   const requestPath = url.slice(baseUrl.length).split(/[?#]/, 1)[0];
-  return PUBLIC_AUTH_PATHS.includes(requestPath);
+  return PUBLIC_API_PATHS.includes(requestPath);
 }
