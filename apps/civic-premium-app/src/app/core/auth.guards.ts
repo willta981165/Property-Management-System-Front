@@ -34,11 +34,13 @@ export const roleGuard: (allowed: UserRole[]) => CanActivateFn =
           return router.createUrlTree(["/login"]);
         }
 
-        if (allowed.includes(user.role)) {
+        const effectiveRole = user.role === "family" ? "resident" : user.role;
+
+        if (allowed.includes(effectiveRole)) {
           return true;
         }
 
-        return user.role === "admin"
+        return effectiveRole === "admin"
           ? router.createUrlTree(["/admin/dashboard"])
           : router.createUrlTree(["/home"]);
       })

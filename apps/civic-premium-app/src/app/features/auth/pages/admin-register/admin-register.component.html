@@ -1,6 +1,11 @@
 <section class="auth-page admin-register-page">
   <header class="auth-topbar center-title">
-    <button type="button" class="topbar-action" (click)="goBack()" aria-label="返回">
+    <button
+      type="button"
+      class="topbar-action"
+      (click)="goBack()"
+      aria-label="返回"
+    >
       <mat-icon>arrow_back_ios_new</mat-icon>
     </button>
 
@@ -16,7 +21,8 @@
 
     <h2 class="auth-title">建立工作帳號</h2>
     <p class="auth-subtitle">
-      此頁面僅供 Civic Premium 授權之管理人員使用。請填寫您的員工資訊以完成註冊流程。
+      此頁面僅供 Civic Premium
+      授權之管理人員使用。請填寫您的員工資訊以完成註冊流程。
     </p>
   </section>
 
@@ -24,10 +30,16 @@
     <label class="auth-field">
       <span class="auth-label">姓名</span>
       <span class="auth-input-wrap">
-        <input class="auth-input" type="text" formControlName="name" placeholder="請輸入真實姓名" autocomplete="name" />
+        <input
+          class="auth-input"
+          type="text"
+          formControlName="name"
+          placeholder="請輸入真實姓名"
+          autocomplete="name"
+        />
       </span>
       @if (submitted && form.controls.name.invalid) {
-        <p class="auth-error">請輸入姓名</p>
+      <p class="auth-error">請輸入姓名</p>
       }
     </label>
 
@@ -35,10 +47,15 @@
       <label class="auth-field">
         <span class="auth-label">員工編號</span>
         <span class="auth-input-wrap">
-          <input class="auth-input" type="text" formControlName="employeeId" placeholder="ID-0000" />
+          <input
+            class="auth-input"
+            type="text"
+            formControlName="employeeId"
+            placeholder="ID-0000"
+          />
         </span>
         @if (submitted && form.controls.employeeId.invalid) {
-          <p class="auth-error">請輸入員工編號</p>
+        <p class="auth-error">請輸入員工編號</p>
         }
       </label>
 
@@ -47,7 +64,7 @@
         <span class="auth-input-wrap">
           <select class="auth-input" formControlName="department">
             @for (dept of departments; track dept) {
-              <option [value]="dept">{{ dept }}</option>
+            <option [value]="dept">{{ dept }}</option>
             }
           </select>
           <mat-icon class="field-trailing-icon">expand_more</mat-icon>
@@ -56,15 +73,35 @@
     </div>
 
     <label class="auth-field">
+      <span class="auth-label">社區／專案名稱</span>
+      <span class="auth-input-wrap">
+        <input
+          class="auth-input"
+          type="text"
+          formControlName="projectName"
+          placeholder="例如：幸福花園社區"
+        />
+      </span>
+      @if (submitted && form.controls.projectName.invalid) {
+      <p class="auth-error">請輸入社區或專案名稱</p>
+      }
+    </label>
+
+    <label class="auth-field">
       <span class="auth-label">工作信箱</span>
       <span class="auth-input-wrap">
-        <input class="auth-input" type="email" formControlName="email" placeholder="example@civic-staff.com" autocomplete="email" />
+        <input
+          class="auth-input"
+          type="email"
+          formControlName="email"
+          placeholder="example@civic-staff.com"
+          autocomplete="email"
+        />
       </span>
       @if (submitted && form.controls.email.errors?.['required']) {
-        <p class="auth-error">請輸入工作信箱</p>
-      }
-      @if (submitted && form.controls.email.errors?.['email']) {
-        <p class="auth-error">信箱格式不正確</p>
+      <p class="auth-error">請輸入工作信箱</p>
+      } @if (submitted && form.controls.email.errors?.['email']) {
+      <p class="auth-error">信箱格式不正確</p>
       }
     </label>
 
@@ -78,15 +115,21 @@
           placeholder="請輸入 8 位以上字元"
           autocomplete="new-password"
         />
-        <button type="button" class="field-toggle-btn" (click)="togglePassword()" aria-label="切換密碼顯示">
-          <mat-icon class="field-trailing-icon">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <button
+          type="button"
+          class="field-toggle-btn"
+          (click)="togglePassword()"
+          aria-label="切換密碼顯示"
+        >
+          <mat-icon class="field-trailing-icon">{{
+            showPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </button>
       </span>
       @if (submitted && form.controls.password.errors?.['required']) {
-        <p class="auth-error">請輸入密碼</p>
-      }
-      @if (submitted && form.controls.password.errors?.['minlength']) {
-        <p class="auth-error">密碼至少 8 位</p>
+      <p class="auth-error">請輸入密碼</p>
+      } @if (submitted && form.controls.password.errors?.['minlength']) {
+      <p class="auth-error">密碼至少 8 位</p>
       }
     </label>
 
@@ -100,19 +143,29 @@
           placeholder="請再次輸入密碼"
           autocomplete="new-password"
         />
-        <button type="button" class="field-toggle-btn" (click)="toggleConfirmPassword()" aria-label="切換確認密碼顯示">
-          <mat-icon class="field-trailing-icon">{{ showConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        <button
+          type="button"
+          class="field-toggle-btn"
+          (click)="toggleConfirmPassword()"
+          aria-label="切換確認密碼顯示"
+        >
+          <mat-icon class="field-trailing-icon">{{
+            showConfirmPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </button>
       </span>
       @if (submitted && form.controls.confirmPassword.invalid) {
-        <p class="auth-error">請再次輸入密碼</p>
-      }
-      @if (submitted && form.errors?.['passwordMismatch']) {
-        <p class="auth-error">兩次輸入的密碼不一致</p>
+      <p class="auth-error">請再次輸入密碼</p>
+      } @if (submitted && form.errors?.['passwordMismatch']) {
+      <p class="auth-error">兩次輸入的密碼不一致</p>
       }
     </label>
 
-    <civic-button type="submit" class="auth-primary-button">
+    @if (errorMsg) {
+    <p class="auth-error auth-inline-error">{{ errorMsg }}</p>
+    }
+
+    <civic-button type="submit" class="auth-primary-button" [loading]="loading">
       建立管理員帳號
       <mat-icon>arrow_forward</mat-icon>
     </civic-button>

@@ -60,7 +60,7 @@ export class LoginComponent {
     this.loading = true;
     this.auth
       .login({
-        account: account ?? "",
+        identifier: account ?? "",
         password: password ?? "",
       })
       .subscribe({

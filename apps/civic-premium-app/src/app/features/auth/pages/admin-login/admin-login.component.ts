@@ -64,7 +64,7 @@ export class AdminLoginComponent {
     this.loading = true;
     this.auth
       .login({
-        account: employeeId ?? "",
+        identifier: employeeId ?? "",
         password: password ?? "",
       })
       .subscribe({
