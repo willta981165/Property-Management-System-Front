@@ -1,50 +1,57 @@
 <main class="civic-page admin-residents-page">
-	<header class="top-wrap">
-		<h1 class="civic-title">住戶帳號清單</h1>
-		<a class="civic-btn civic-btn-primary create-link" routerLink="/admin/residents/create">新增住戶</a>
-	</header>
+  <header class="top-wrap">
+    <h1 class="civic-title">住戶帳號清單</h1>
+    <a
+      class="civic-btn civic-btn-primary create-link"
+      routerLink="/admin/residents/create"
+      >新增住戶</a
+    >
+  </header>
 
-	<section class="civic-card civic-card-pad search-wrap">
-		<input class="civic-input" type="text" placeholder="搜尋住戶名稱或單位（例如 A-12F）" />
-		<div class="chip-row">
-			<span class="civic-chip civic-chip-success">啟用中</span>
-			<span class="civic-chip civic-chip-warning">審核中</span>
-			<span class="civic-chip civic-chip-danger">停用中</span>
-		</div>
-	</section>
+  <section class="civic-card civic-card-pad search-wrap">
+    <input
+      class="civic-input"
+      type="text"
+      placeholder="搜尋住戶名稱或單位（例如 A-12F）"
+    />
+    <div class="chip-row">
+      <span class="civic-chip civic-chip-success">啟用中</span>
+      <span class="civic-chip civic-chip-warning">審核中</span>
+      <span class="civic-chip civic-chip-danger">停用中</span>
+    </div>
+  </section>
 
-	<section class="civic-list">
-		<article class="civic-card civic-card-pad resident-item">
-			<div class="left">
-				<span class="avatar">A</span>
-				<div>
-					<p class="name">陳大文 David Chen</p>
-					<p class="meta">A-12F ・ 0912-345-678</p>
-				</div>
-			</div>
-			<span class="civic-chip civic-chip-success">啟用中</span>
-		</article>
-
-		<article class="civic-card civic-card-pad resident-item">
-			<div class="left">
-				<span class="avatar">L</span>
-				<div>
-					<p class="name">林美玲 Linda Lin</p>
-					<p class="meta">B-05C ・ 0921-987-654</p>
-				</div>
-			</div>
-			<span class="civic-chip civic-chip-success">啟用中</span>
-		</article>
-
-		<article class="civic-card civic-card-pad resident-item">
-			<div class="left">
-				<span class="avatar">W</span>
-				<div>
-					<p class="name">王小明 Kevin Wang</p>
-					<p class="meta">C-22A ・ 0933-222-111</p>
-				</div>
-			</div>
-			<span class="civic-chip civic-chip-danger">停用中</span>
-		</article>
-	</section>
+  <section class="civic-list">
+    @if (loading()) {
+    <p class="civic-subtitle">住戶資料載入中…</p>
+    } @else if (errorMsg()) {
+    <p class="civic-subtitle">{{ errorMsg() }}</p>
+    <button
+      type="button"
+      class="civic-btn civic-btn-soft"
+      (click)="loadResidents()"
+    >
+      重新載入
+    </button>
+    } @else { @for (resident of residents(); track resident.id ?? $index) {
+    <article class="civic-card civic-card-pad resident-item">
+      <div class="left">
+        <span class="avatar">{{ residentInitial(resident) }}</span>
+        <div>
+          <p class="name">{{ residentName(resident) }}</p>
+          <p class="meta">{{ residentMeta(resident) }}</p>
+        </div>
+      </div>
+      <span
+        class="civic-chip"
+        [class.civic-chip-success]="resident.is_active !== false"
+        [class.civic-chip-danger]="resident.is_active === false"
+      >
+        {{ resident.is_active === false ? "停用中" : "啟用中" }}
+      </span>
+    </article>
+    } @empty {
+    <p class="civic-subtitle">目前沒有住戶資料</p>
+    } }
+  </section>
 </main>
